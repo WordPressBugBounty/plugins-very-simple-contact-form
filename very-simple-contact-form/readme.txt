@@ -1,12 +1,12 @@
 === VS Contact Form ===
 Contributors: Guido07111975
-Version: 16.3
+Version: 16.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Requires PHP: 7.0
 Requires at least: 5.0
-Tested up to: 6.6
-Stable tag: 16.3
+Tested up to: 6.7
+Stable tag: 16.4
 Tags: simple, contact, form, contact form, email
 
 
@@ -21,14 +21,16 @@ To display your form you can use a block, a shortcode or a widget.
 
 Form contains fields for Name, Email, Subject and Message. Also included are a sum field (to avoid abuse) and a privacy consent checkbox.
 
-You can customize your form via the settings page or by adding attributes to the block, the shortcode or the widget.
+You can customize your form via the settings page or with attributes.
 
 It's also possible to display form submissions in your dashboard.
 
 = How to use =
 After installation add the VS Contact Form block or the shortcode `[contact]` to a page to display your form.
 
-You can also go to Appearance > Widgets and use the VS Contact Form widget.
+Or go to Appearance > Widgets and use the VS Contact Form widget.
+
+You can customize your form via the settings page or with attributes.
 
 = Settings page =
 You can customize your form via the settings page. This page is located at Settings > VS Contact Form.
@@ -140,6 +142,9 @@ You can change this by using an attribute.
 
 Your reply to sender will use another email header, called "Reply-To", which is the email address that sender has filled in.
 
+= Why does the form look different between themes? =
+The plugin uses minimal styling and therefore also depends on the styling of your theme.
+
 = Can I display multiple forms on the same page? =
 Do not add multiple blocks, shortcodes or widgets to the same page. This might cause a conflict.
 
@@ -202,6 +207,11 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 
 == Changelog ==
+= Version 16.4 =
+* New: choose which form submissions to ignore
+* Ignore form submissions with banned words
+* Ignore form submissions when Message field does not accept links or email addresses
+
 = Version 16.3 =
 * Minor changes in code
 
@@ -233,16 +243,13 @@ Please open a topic in the WordPress.org support forum for this plugin.
 * Replaced most of the $_SERVER instances with default WP function
 * This will fix an undefined array key warning (in some cases)
 
-= Version 15.4 =
-* Improved validation
-
 For all versions please check file changelog.
 
 
 == Screenshots ==
-1. Form (GeneratePress theme)
-2. Form (GeneratePress theme)
-3. Form widget (GeneratePress theme)
+1. Form
+2. Form
+3. Form widget
 4. Widget (dashboard)
 5. Settings page (dashboard)
 6. Settings page (dashboard)

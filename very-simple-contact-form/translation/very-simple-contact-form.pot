@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: VS Contact Form\n"
-"POT-Creation-Date: 2024-08-10 16:47+0200\n"
+"POT-Creation-Date: 2024-11-03 19:54+0100\n"
 "PO-Revision-Date: 2015-08-14 23:18+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #. Plugin Name of the plugin/theme
-#: vscf-block.php:55 vscf-options.php:9 vscf-options.php:491
+#: vscf-block.php:55 vscf-options.php:9 vscf-options.php:504
 #: vscf-widget.php:11 vscf-widget.php:21
 msgid "VS Contact Form"
 msgstr ""
@@ -41,11 +41,11 @@ msgstr ""
 msgid "Apply changes"
 msgstr ""
 
-#: vscf-block.php:60 vscf-options.php:516 vscf-widget.php:32
+#: vscf-block.php:60 vscf-options.php:529 vscf-widget.php:32
 msgid "For info and available attributes"
 msgstr ""
 
-#: vscf-block.php:61 vscf-options.php:516 vscf-widget.php:32
+#: vscf-block.php:61 vscf-options.php:529 vscf-widget.php:32
 msgid "click here"
 msgstr ""
 
@@ -73,7 +73,7 @@ msgstr ""
 msgid "Error: transient"
 msgstr ""
 
-#: vscf-options.php:16 vscf-options.php:494
+#: vscf-options.php:16 vscf-options.php:507
 msgid "General"
 msgstr ""
 
@@ -81,27 +81,27 @@ msgstr ""
 msgid "Uninstall"
 msgstr ""
 
-#: vscf-options.php:21 vscf-options.php:45 vscf-options.php:87
-#: vscf-options.php:105
+#: vscf-options.php:21 vscf-options.php:45 vscf-options.php:90
+#: vscf-options.php:108
 msgid "Email address"
 msgstr ""
 
-#: vscf-options.php:24 vscf-options.php:27 vscf-options.php:139
-#: vscf-options.php:350 vscf-variables.php:100 vscf.php:62
+#: vscf-options.php:24 vscf-options.php:27 vscf-options.php:142
+#: vscf-options.php:363 vscf-variables.php:101 vscf.php:62
 msgid "Email"
 msgstr ""
 
-#: vscf-options.php:30 vscf-options.php:33 vscf-options.php:72
-#: vscf-options.php:90 vscf-options.php:108 vscf-options.php:358
-#: vscf-variables.php:112
+#: vscf-options.php:30 vscf-options.php:33 vscf-options.php:75
+#: vscf-options.php:93 vscf-options.php:111 vscf-options.php:371
+#: vscf-variables.php:113
 msgid "Subject"
 msgstr ""
 
-#: vscf-options.php:36 vscf-options.php:51 vscf.php:43
+#: vscf-options.php:36 vscf-options.php:51 vscf-options.php:54 vscf.php:43
 msgid "Submissions"
 msgstr ""
 
-#: vscf-options.php:39 vscf-options.php:82 vscf-options.php:496
+#: vscf-options.php:39 vscf-options.php:85 vscf-options.php:509
 msgid "Labels"
 msgstr ""
 
@@ -109,263 +109,267 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
-#: vscf-options.php:48 vscf-options.php:127
+#: vscf-options.php:48 vscf-options.php:130
 msgid "Banned words"
 msgstr ""
 
-#: vscf-options.php:54
+#: vscf-options.php:57
 msgid "Input"
 msgstr ""
 
-#: vscf-options.php:57
+#: vscf-options.php:60
 msgid "Textarea"
 msgstr ""
 
-#: vscf-options.php:60 vscf-options.php:78 vscf-options.php:96
-#: vscf-options.php:130
+#: vscf-options.php:63 vscf-options.php:81 vscf-options.php:99
+#: vscf-options.php:133
 msgid "Privacy"
 msgstr ""
 
-#: vscf-options.php:63
+#: vscf-options.php:66
 msgid "Anchor"
 msgstr ""
 
-#: vscf-options.php:66
+#: vscf-options.php:69
 msgid "Debugging"
 msgstr ""
 
-#: vscf-options.php:70 vscf-options.php:495
+#: vscf-options.php:73 vscf-options.php:508
 msgid "Fields"
 msgstr ""
 
-#: vscf-options.php:75 vscf-options.php:111
+#: vscf-options.php:78 vscf-options.php:114
 msgid "Sum"
 msgstr ""
 
-#: vscf-options.php:84 vscf-options.php:102 vscf-options.php:342
-#: vscf-variables.php:88 vscf.php:61
+#: vscf-options.php:87 vscf-options.php:105 vscf-options.php:355
+#: vscf-variables.php:89 vscf.php:61
 msgid "Name"
 msgstr ""
 
-#: vscf-options.php:93 vscf-options.php:114 vscf-options.php:118
-#: vscf-options.php:123 vscf-options.php:366 vscf-variables.php:124
+#: vscf-options.php:96 vscf-options.php:117 vscf-options.php:121
+#: vscf-options.php:126 vscf-options.php:379 vscf-variables.php:125
 msgid "Message"
 msgstr ""
 
-#: vscf-options.php:99 vscf-options.php:382 vscf-variables.php:148
+#: vscf-options.php:102 vscf-options.php:395 vscf-variables.php:149
 msgid "Submit"
 msgstr ""
 
-#: vscf-options.php:102 vscf-options.php:105 vscf-options.php:108
-#: vscf-options.php:111 vscf-options.php:114 vscf-options.php:118
-#: vscf-options.php:123 vscf-options.php:127 vscf-options.php:130
+#: vscf-options.php:105 vscf-options.php:108 vscf-options.php:111
+#: vscf-options.php:114 vscf-options.php:117 vscf-options.php:121
+#: vscf-options.php:126 vscf-options.php:130 vscf-options.php:133
 msgid "Error"
 msgstr ""
 
-#: vscf-options.php:134 vscf-options.php:497
+#: vscf-options.php:137 vscf-options.php:510
 msgid "Messages"
 msgstr ""
 
-#: vscf-options.php:136
+#: vscf-options.php:139
 msgid "Form"
 msgstr ""
 
-#: vscf-options.php:149
+#: vscf-options.php:152
 msgid "Do not delete form submissions and settings when uninstalling plugin."
 msgstr ""
 
-#: vscf-options.php:158
+#: vscf-options.php:161
 msgid "Form submissions can be sent to a maximum of 5 email addresses."
 msgstr ""
 
-#: vscf-options.php:159
+#: vscf-options.php:162
 msgid "Use a comma to separate multiple email addresses."
 msgstr ""
 
-#: vscf-options.php:167
+#: vscf-options.php:170
 msgid "Disable email sending."
 msgstr ""
 
-#: vscf-options.php:168
+#: vscf-options.php:171
 msgid ""
 "Disable email sending if you only want to list form submissions in "
 "dashboard."
 msgstr ""
 
-#: vscf-options.php:176
+#: vscf-options.php:179
 msgid "Activate auto-reply email to sender."
 msgstr ""
 
-#: vscf-options.php:183 vscf-options.php:197 vscf-submission.php:69
-#: vscf-submission.php:79
+#: vscf-options.php:186 vscf-options.php:200 vscf-submission.php:71
+#: vscf-submission.php:81
 msgid "Form submission"
 msgstr ""
 
-#: vscf-options.php:185 vscf-options.php:199
+#: vscf-options.php:188 vscf-options.php:202
 msgid "Subject from sender"
 msgstr ""
 
-#: vscf-options.php:190
+#: vscf-options.php:193
 msgid "Subject for the email."
 msgstr ""
 
-#: vscf-options.php:204
+#: vscf-options.php:207
 msgid "Subject for the auto-reply email to sender."
 msgstr ""
 
-#: vscf-options.php:212
+#: vscf-options.php:215
 msgid "List form submissions in dashboard."
 msgstr ""
 
-#: vscf-options.php:220
+#: vscf-options.php:223
 msgid "Hide labels and use placeholders instead."
 msgstr ""
 
-#: vscf-options.php:221
+#: vscf-options.php:224
 msgid "Labels remain available for screen readers."
 msgstr ""
 
-#: vscf-options.php:229 vscf-options.php:233 vscf-options.php:242
-#: vscf-options.php:245
+#: vscf-options.php:232 vscf-options.php:236 vscf-options.php:245
+#: vscf-options.php:248
 msgid "Allow"
 msgstr ""
 
-#: vscf-options.php:230 vscf-options.php:243
+#: vscf-options.php:233 vscf-options.php:246
 msgid "Disallow"
 msgstr ""
 
-#: vscf-options.php:231
+#: vscf-options.php:234
 msgid "One"
 msgstr ""
 
-#: vscf-options.php:233 vscf-options.php:245 vscf-options.php:274
-#: vscf-options.php:284
+#: vscf-options.php:236 vscf-options.php:248 vscf-options.php:287
+#: vscf-options.php:297
 #, php-format
 msgid "Default value is %s."
 msgstr ""
 
-#: vscf-options.php:234
+#: vscf-options.php:237
 msgid "Allow or disallow links in Message field."
 msgstr ""
 
-#: vscf-options.php:246
+#: vscf-options.php:249
 msgid "Allow or disallow email addresses in Message field."
 msgstr ""
 
-#: vscf-options.php:254
+#: vscf-options.php:257
 msgid "Disallow banned words in form submissions."
 msgstr ""
 
-#: vscf-options.php:255
+#: vscf-options.php:258
 msgid "Use a comma to separate multiple words."
 msgstr ""
 
-#: vscf-options.php:263
-msgid ""
-"Ignore form submissions with banned words, or when Message field does not "
-"accept links or email addresses."
+#: vscf-options.php:266
+msgid "Ignore form submissions with banned words."
 msgstr ""
 
-#: vscf-options.php:264
+#: vscf-options.php:267 vscf-options.php:277
 msgid "Form submissions are not listed in dashboard and no email is send."
 msgstr ""
 
-#: vscf-options.php:265
+#: vscf-options.php:268 vscf-options.php:278
 msgid "You can activate this if you receive a lot of spam."
 msgstr ""
 
-#: vscf-options.php:275 vscf-options.php:285
+#: vscf-options.php:276
+msgid ""
+"Ignore form submissions when Message field does not accept links or email "
+"addresses."
+msgstr ""
+
+#: vscf-options.php:288 vscf-options.php:298
 msgid "Limit input by using the maxlength attribute."
 msgstr ""
 
-#: vscf-options.php:293
+#: vscf-options.php:306
 msgid "Disable collection of IP address."
 msgstr ""
 
-#: vscf-options.php:301
+#: vscf-options.php:314
 msgid "Scroll back to form position after submit."
 msgstr ""
 
-#: vscf-options.php:309
+#: vscf-options.php:322
 msgid "Display validation errors of anti-spam features."
 msgstr ""
 
-#: vscf-options.php:310
+#: vscf-options.php:323
 msgid "Errors are displayed underneath form after submit button is clicked."
 msgstr ""
 
-#: vscf-options.php:319 vscf-options.php:327 vscf-options.php:336
+#: vscf-options.php:332 vscf-options.php:340 vscf-options.php:349
 msgid "Disable"
 msgstr ""
 
-#: vscf-options.php:328
+#: vscf-options.php:341
 msgid "This field is part of the anti-spam features."
 msgstr ""
 
-#: vscf-options.php:374 vscf-variables.php:136
+#: vscf-options.php:387 vscf-variables.php:137
 msgid ""
 "I consent to having this website collect my personal data via this form."
 msgstr ""
 
-#: vscf-options.php:390 vscf-options.php:406 vscf-variables.php:211
-#: vscf-variables.php:235
+#: vscf-options.php:403 vscf-options.php:419 vscf-variables.php:212
+#: vscf-variables.php:236
 msgid "Please enter at least 2 characters"
 msgstr ""
 
-#: vscf-options.php:398 vscf-variables.php:223
+#: vscf-options.php:411 vscf-variables.php:224
 msgid "Please enter a valid email"
 msgstr ""
 
-#: vscf-options.php:414 vscf-variables.php:247
+#: vscf-options.php:427 vscf-variables.php:248
 msgid "Please enter the correct result"
 msgstr ""
 
-#: vscf-options.php:422 vscf-variables.php:259
+#: vscf-options.php:435 vscf-variables.php:260
 msgid "Please enter at least 10 characters"
 msgstr ""
 
-#: vscf-options.php:430 vscf-variables.php:271
+#: vscf-options.php:443 vscf-variables.php:272
 msgid "Please remove links"
 msgstr ""
 
-#: vscf-options.php:432
+#: vscf-options.php:445
 msgid "More than 1 link is not allowed."
 msgstr ""
 
-#: vscf-options.php:434
+#: vscf-options.php:447
 msgid "Links are not allowed."
 msgstr ""
 
-#: vscf-options.php:444 vscf-variables.php:283
+#: vscf-options.php:457 vscf-variables.php:284
 msgid "Please remove email addresses"
 msgstr ""
 
-#: vscf-options.php:448
+#: vscf-options.php:461
 msgid "Email addresses are not allowed."
 msgstr ""
 
-#: vscf-options.php:453 vscf-variables.php:295
+#: vscf-options.php:466 vscf-variables.php:296
 msgid "Please remove banned words"
 msgstr ""
 
-#: vscf-options.php:461 vscf-variables.php:307
+#: vscf-options.php:474 vscf-variables.php:308
 msgid "Please give your consent"
 msgstr ""
 
-#: vscf-options.php:470 vscf-options.php:479 vscf-variables.php:319
-#: vscf-variables.php:331
+#: vscf-options.php:483 vscf-options.php:492 vscf-variables.php:320
+#: vscf-variables.php:332
 msgid "Thank you! You will receive a response as soon as possible."
 msgstr ""
 
-#: vscf-options.php:474
+#: vscf-options.php:487
 msgid "Displayed when sending succeeds."
 msgstr ""
 
-#: vscf-options.php:483
+#: vscf-options.php:496
 msgid "Displayed in the auto-reply email to sender."
 msgstr ""
 
-#: vscf-options.php:515
+#: vscf-options.php:528
 msgid "You can also use attributes to customize your contact form."
 msgstr ""
 
@@ -373,12 +377,12 @@ msgstr ""
 msgid "Error: could not send form"
 msgstr ""
 
-#: vscf-submission.php:91
+#: vscf-submission.php:93
 #, php-format
 msgid "Privacy consent: %s"
 msgstr ""
 
-#: vscf-submission.php:99
+#: vscf-submission.php:101
 #, php-format
 msgid "IP: %s"
 msgstr ""

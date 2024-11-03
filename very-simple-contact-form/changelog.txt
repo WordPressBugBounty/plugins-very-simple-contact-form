@@ -1,5 +1,10 @@
 == Changelog VS Contact Form ==
 
+= Version 16.4 =
+* New: choose which form submissions to ignore
+* Ignore form submissions with banned words
+* Ignore form submissions when Message field does not accept links or email addresses
+
 = Version 16.3 =
 * Minor changes in code
 

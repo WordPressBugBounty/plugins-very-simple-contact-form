@@ -39,7 +39,7 @@
 .vscf-widget {}
 .vscf-widget:after {content:''; display:block; height:0; clear:both;}
 
-/* Widget text above form */
+/* Widget - text above form */
 .vscf-widget-text {margin:0 0 20px;}
 .vscf-widget-text p {margin:0 0 10px; padding:0;}
 .vscf-widget-text p:last-of-type {margin-bottom:0;}

@@ -15,7 +15,7 @@ if ( !empty($banned_words_list) ) {
 		}
 	}
 }
-if ( isset($banned_words_name_field) && ($ignore_submission != 'yes') ) {
+if ( isset($banned_words_name_field) && ($ignore_submission_banned_words != 'yes') ) {
 	$error_class['form_name_banned_words'] = true;
 	$error = true;
 } elseif ( mb_strlen($value_name)<2 ) {
@@ -35,7 +35,7 @@ if ( !empty($banned_words_list) ) {
 		}
 	}
 }
-if ( isset($banned_words_email_field) && ($ignore_submission != 'yes') ) {
+if ( isset($banned_words_email_field) && ($ignore_submission_banned_words != 'yes') ) {
 	$error_class['form_email_banned_words'] = true;
 	$error = true;
 } elseif ( empty($value_email) ) {
@@ -56,7 +56,7 @@ if ($disable_subject != 'yes') {
 			}
 		}
 	}
-	if ( isset($banned_words_subject_field) && ($ignore_submission != 'yes') ) {
+	if ( isset($banned_words_subject_field) && ($ignore_submission_banned_words != 'yes') ) {
 		$error_class['form_subject_banned_words'] = true;
 		$error = true;
 	} elseif ( mb_strlen($value_subject)<2 ) {
@@ -125,16 +125,16 @@ if ($allow_email == 'disallow') {
 		}
 	}
 }
-if ( isset($banned_words_message_field) && ($ignore_submission != 'yes') ) {
+if ( isset($banned_words_message_field) && ($ignore_submission_banned_words != 'yes') ) {
 	$error_class['form_message_banned_words'] = true;
 	$error = true;
 } elseif ( mb_strlen($value_message)<10 ) {
 	$error_class['form_message'] = true;
 	$error = true;
-} elseif ( isset($message_has_links) && ($ignore_submission != 'yes') ) {
+} elseif ( isset($message_has_links) && ($ignore_submission_email_links != 'yes') ) {
 	$error_class['form_message_has_links'] = true;
 	$error = true;
-} elseif ( isset($message_has_email) && ($ignore_submission != 'yes') ) {
+} elseif ( isset($message_has_email) && ($ignore_submission_email_links != 'yes') ) {
 	$error_class['form_message_has_email'] = true;
 	$error = true;
 }

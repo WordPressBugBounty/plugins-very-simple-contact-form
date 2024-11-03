@@ -51,6 +51,9 @@ function vscf_admin_init() {
 	add_settings_field( 'vscf-field-30', esc_attr__( 'Submissions', 'very-simple-contact-form' ), 'vscf_field_callback_30', 'vscf-general', 'vscf-general-section' );
 	register_setting( 'vscf-general-options', 'vscf-setting-30', array('sanitize_callback' => 'sanitize_key') );
 
+	add_settings_field( 'vscf-field-38', esc_attr__( 'Submissions', 'very-simple-contact-form' ), 'vscf_field_callback_38', 'vscf-general', 'vscf-general-section' );
+	register_setting( 'vscf-general-options', 'vscf-setting-38', array('sanitize_callback' => 'sanitize_key') );
+
 	add_settings_field( 'vscf-field-32', esc_attr__( 'Input', 'very-simple-contact-form' ), 'vscf_field_callback_32', 'vscf-general', 'vscf-general-section' );
 	register_setting( 'vscf-general-options', 'vscf-setting-32', array('sanitize_callback' => 'sanitize_text_field') );
 
@@ -260,7 +263,17 @@ function vscf_field_callback_30() {
 	$value = get_option( 'vscf-setting-30' );
 	?>
 	<input type='hidden' name='vscf-setting-30' value='no'>
-	<label><input type='checkbox' name='vscf-setting-30' <?php checked( esc_attr($value), 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Ignore form submissions with banned words, or when Message field does not accept links or email addresses.', 'very-simple-contact-form' ); ?></label>
+	<label><input type='checkbox' name='vscf-setting-30' <?php checked( esc_attr($value), 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Ignore form submissions with banned words.', 'very-simple-contact-form' ); ?></label>
+	<p><?php esc_attr_e( 'Form submissions are not listed in dashboard and no email is send.', 'very-simple-contact-form' ); ?></p>
+	<p><?php esc_attr_e( 'You can activate this if you receive a lot of spam.', 'very-simple-contact-form' ); ?></p>
+	<?php
+}
+
+function vscf_field_callback_38() {
+	$value = get_option( 'vscf-setting-38' );
+	?>
+	<input type='hidden' name='vscf-setting-38' value='no'>
+	<label><input type='checkbox' name='vscf-setting-38' <?php checked( esc_attr($value), 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Ignore form submissions when Message field does not accept links or email addresses.', 'very-simple-contact-form' ); ?></label>
 	<p><?php esc_attr_e( 'Form submissions are not listed in dashboard and no email is send.', 'very-simple-contact-form' ); ?></p>
 	<p><?php esc_attr_e( 'You can activate this if you receive a lot of spam.', 'very-simple-contact-form' ); ?></p>
 	<?php

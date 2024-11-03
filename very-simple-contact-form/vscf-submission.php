@@ -6,8 +6,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // sending and saving form submission
 if ($error == false) {
-	if ( ( isset($banned_words) || isset($message_has_links) || isset($message_has_email) ) && ($ignore_submission == 'yes') ) {
+	if ( isset($banned_words) && ($ignore_submission_banned_words == 'yes') ) {
 		$sent = true;
+	} elseif ( ( isset($message_has_links) || isset($message_has_email) ) && ($ignore_submission_email_links == 'yes') ) {
+		$sent = true;	
 	} else {
 		// hook to support plugin Contact Form DB
 		do_action( 'vscf_before_send_mail', $form_data );
