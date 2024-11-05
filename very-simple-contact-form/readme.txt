@@ -1,12 +1,12 @@
 === VS Contact Form ===
 Contributors: Guido07111975
-Version: 16.4
+Version: 16.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Requires PHP: 7.0
 Requires at least: 5.0
 Tested up to: 6.7
-Stable tag: 16.4
+Stable tag: 16.5
 Tags: simple, contact, form, contact form, email
 
 
@@ -186,6 +186,13 @@ Also included are a sum field, hidden honeypot fields and a hidden time trap.
 
 And you can limit the number of links and email addresses that is allowed in Message field.
 
+= How does the "ignore form submissions" feature work? =
+If you receive a lot of spam you can choose to ignore form submissions with banned words, links or email addresses.
+
+Sender can still fill out the form and include banned words, links or email addresses. But nothing happens with this form submission. So sender gets the impression form is successfully send and moves on.
+
+You can activate this feature via the settings page.
+
 = Does this plugin meet the conditions of the GDPR? =
 The General Data Protection Regulation (GDPR) is a regulation in EU law on data protection and privacy for all individuals within the European Union.
 
@@ -195,6 +202,7 @@ I did my best to meet the conditions of the GDPR:
 * You can disable collection of IP address
 * Form submissions are safely stored in database, similar to how the default posts and pages are stored
 * You can easily delete form submissions
+* You can disable form submissions being stored in datebase
 
 = Why is there no semantic versioning? =
 The version number won't give you info about the type of update (major, minor, patch). You should check the changelog to see whether or not the update is a major or minor one.
@@ -207,6 +215,9 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 
 == Changelog ==
+= Version 16.5 =
+* Minor changes in code
+
 = Version 16.4 =
 * New: choose which form submissions to ignore
 * Ignore form submissions with banned words
@@ -238,10 +249,6 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 = Version 15.6 =
 * Fix: replaced parse_url() with wp_parse_url()
-
-= Version 15.5 =
-* Replaced most of the $_SERVER instances with default WP function
-* This will fix an undefined array key warning (in some cases)
 
 For all versions please check file changelog.
 
