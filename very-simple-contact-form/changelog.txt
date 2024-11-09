@@ -1,5 +1,8 @@
 == Changelog VS Contact Form ==
 
+= Version 16.6 =
+* Minor changes in code
+
 = Version 16.5 =
 * Minor changes in code
 

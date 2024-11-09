@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // contact form
-$email_form = '<form name="vscf_'.$rand_suffix.'" id="vscf" class="'.$form_class.'" method="post">
+$email_form = '<form name="vscf_'.$rand_suffix.'" id="vscf" class="'.esc_attr($form_class).'" method="post">
 '.$fieldset_start.'
 	<div class="form-group vscf-name-group">
 		<label for="vscf_name" class="'.(($hide_labels == 'yes') ? "vscf-hide" : "vscf-label").'">'.esc_attr($name_label).' </label>

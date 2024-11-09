@@ -1,12 +1,12 @@
 === VS Contact Form ===
 Contributors: Guido07111975
-Version: 16.5
+Version: 16.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Requires PHP: 7.0
 Requires at least: 5.0
 Tested up to: 6.7
-Stable tag: 16.5
+Stable tag: 16.6
 Tags: simple, contact, form, contact form, email
 
 
@@ -215,6 +215,9 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 
 == Changelog ==
+= Version 16.6 =
+* Minor changes in code
+
 = Version 16.5 =
 * Minor changes in code
 
@@ -246,9 +249,6 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 = Version 15.7 =
 * Fix: "From" email header
-
-= Version 15.6 =
-* Fix: replaced parse_url() with wp_parse_url()
 
 For all versions please check file changelog.
 

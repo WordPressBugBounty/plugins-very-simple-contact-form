@@ -206,7 +206,7 @@ function vscf_widget_shortcode($vscf_atts) {
 	} else {
 		$custom_class = ' '.sanitize_key($vscf_atts['class']);
 	}
-	$form_class = 'vscf-widget'.$custom_class.'';	
+	$form_class = 'vscf-widget'.$custom_class.'';
 
 	// processing form
 	if ( ($_SERVER['REQUEST_METHOD'] == 'POST') && isset($_POST['vscf_widget_send_'.$rand_suffix.'']) ) {

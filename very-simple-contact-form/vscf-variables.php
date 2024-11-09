@@ -363,7 +363,7 @@ if ($form_anchor == 'yes') {
 
 // disable form in block editor
 $disabled = vscf_disable_form();
-if ( !empty($disabled) ) {
+if ( $disabled === true ) {
 	$fieldset_start = '<fieldset disabled>';
 	$fieldset_end = '</fieldset>';
 } else {
