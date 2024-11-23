@@ -1,5 +1,11 @@
 == Changelog VS Contact Form ==
 
+= Version 16.7 =
+* Have updated the feature to ignore form submissions
+* Ignore form submissions when Message field does not accept links
+* Ignore form submissions when Message field does not accept email addresses
+* Updated block code
+
 = Version 16.6 =
 * Minor changes in code
 

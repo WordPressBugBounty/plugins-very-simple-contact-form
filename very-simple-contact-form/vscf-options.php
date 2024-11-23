@@ -39,20 +39,23 @@ function vscf_admin_init() {
 	add_settings_field( 'vscf-field-27', esc_attr__( 'Labels', 'very-simple-contact-form' ), 'vscf_field_callback_27', 'vscf-general', 'vscf-general-section' );
 	register_setting( 'vscf-general-options', 'vscf-setting-27', array('sanitize_callback' => 'sanitize_key') );
 
-	add_settings_field( 'vscf-field-25', esc_attr__( 'Links', 'very-simple-contact-form' ), 'vscf_field_callback_25', 'vscf-general', 'vscf-general-section' );
-	register_setting( 'vscf-general-options', 'vscf-setting-25', array('sanitize_callback' => 'sanitize_text_field') );
-
-	add_settings_field( 'vscf-field-36', esc_attr__( 'Email address', 'very-simple-contact-form' ), 'vscf_field_callback_36', 'vscf-general', 'vscf-general-section' );
-	register_setting( 'vscf-general-options', 'vscf-setting-36', array('sanitize_callback' => 'sanitize_text_field') );
-
-	add_settings_field( 'vscf-field-38', esc_attr__( 'Submissions', 'very-simple-contact-form' ), 'vscf_field_callback_38', 'vscf-general', 'vscf-general-section' );
-	register_setting( 'vscf-general-options', 'vscf-setting-38', array('sanitize_callback' => 'sanitize_key') );
-
 	add_settings_field( 'vscf-field-29', esc_attr__( 'Banned words', 'very-simple-contact-form' ), 'vscf_field_callback_29', 'vscf-general', 'vscf-general-section' );
 	register_setting( 'vscf-general-options', 'vscf-setting-29', array('sanitize_callback' => 'sanitize_text_field') );
 
 	add_settings_field( 'vscf-field-30', esc_attr__( 'Submissions', 'very-simple-contact-form' ), 'vscf_field_callback_30', 'vscf-general', 'vscf-general-section' );
 	register_setting( 'vscf-general-options', 'vscf-setting-30', array('sanitize_callback' => 'sanitize_key') );
+
+	add_settings_field( 'vscf-field-25', esc_attr__( 'Links', 'very-simple-contact-form' ), 'vscf_field_callback_25', 'vscf-general', 'vscf-general-section' );
+	register_setting( 'vscf-general-options', 'vscf-setting-25', array('sanitize_callback' => 'sanitize_text_field') );
+
+	add_settings_field( 'vscf-field-38', esc_attr__( 'Submissions', 'very-simple-contact-form' ), 'vscf_field_callback_38', 'vscf-general', 'vscf-general-section' );
+	register_setting( 'vscf-general-options', 'vscf-setting-38', array('sanitize_callback' => 'sanitize_key') );
+
+	add_settings_field( 'vscf-field-36', esc_attr__( 'Email address', 'very-simple-contact-form' ), 'vscf_field_callback_36', 'vscf-general', 'vscf-general-section' );
+	register_setting( 'vscf-general-options', 'vscf-setting-36', array('sanitize_callback' => 'sanitize_text_field') );
+
+	add_settings_field( 'vscf-field-39', esc_attr__( 'Submissions', 'very-simple-contact-form' ), 'vscf_field_callback_39', 'vscf-general', 'vscf-general-section' );
+	register_setting( 'vscf-general-options', 'vscf-setting-39', array('sanitize_callback' => 'sanitize_key') );
 
 	add_settings_field( 'vscf-field-32', esc_attr__( 'Input', 'very-simple-contact-form' ), 'vscf_field_callback_32', 'vscf-general', 'vscf-general-section' );
 	register_setting( 'vscf-general-options', 'vscf-setting-32', array('sanitize_callback' => 'sanitize_text_field') );
@@ -225,6 +228,24 @@ function vscf_field_callback_27() {
 	<?php
 }
 
+function vscf_field_callback_29() {
+	$value = get_option( 'vscf-setting-29' );
+	?>
+	<input type='text' size='40' name='vscf-setting-29' value='<?php echo esc_attr($value); ?>' />
+	<p><?php esc_attr_e( 'Disallow banned words in form submissions.', 'very-simple-contact-form' ); ?></p>
+	<p><?php esc_attr_e( 'Use a comma to separate multiple words.', 'very-simple-contact-form' ); ?></p>
+	<?php
+}
+
+function vscf_field_callback_30() {
+	$value = get_option( 'vscf-setting-30' );
+	?>
+	<input type='hidden' name='vscf-setting-30' value='no'>
+	<label><input type='checkbox' name='vscf-setting-30' <?php checked( esc_attr($value), 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Ignore form submissions with banned words.', 'very-simple-contact-form' ); ?></label>
+	<p><?php esc_attr_e( 'You can activate this if you receive a lot of spam.', 'very-simple-contact-form' ); ?></p>
+	<?php
+}
+
 function vscf_field_callback_25() {
 	$value = get_option( 'vscf-setting-25' );
 	?>
@@ -235,6 +256,15 @@ function vscf_field_callback_25() {
 	</select>
 	<?php printf( esc_attr__( 'Default value is %s.', 'very-simple-contact-form' ), __( 'Allow', 'very-simple-contact-form' ) ); ?>
 	<p><?php esc_attr_e( 'Allow or disallow links in Message field.', 'very-simple-contact-form' ); ?></p>
+	<?php
+}
+
+function vscf_field_callback_38() {
+	$value = get_option( 'vscf-setting-38' );
+	?>
+	<input type='hidden' name='vscf-setting-38' value='no'>
+	<label><input type='checkbox' name='vscf-setting-38' <?php checked( esc_attr($value), 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Ignore form submissions if Message field does not accept links.', 'very-simple-contact-form' ); ?></label>
+	<p><?php esc_attr_e( 'You can activate this if you receive a lot of spam.', 'very-simple-contact-form' ); ?></p>
 	<?php
 }
 
@@ -250,29 +280,11 @@ function vscf_field_callback_36() {
 	<?php
 }
 
-function vscf_field_callback_38() {
-	$value = get_option( 'vscf-setting-38' );
+function vscf_field_callback_39() {
+	$value = get_option( 'vscf-setting-39' );
 	?>
-	<input type='hidden' name='vscf-setting-38' value='no'>
-	<label><input type='checkbox' name='vscf-setting-38' <?php checked( esc_attr($value), 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Ignore form submissions if Message field does not accept links or email addresses.', 'very-simple-contact-form' ); ?></label>
-	<p><?php esc_attr_e( 'You can activate this if you receive a lot of spam.', 'very-simple-contact-form' ); ?></p>
-	<?php
-}
-
-function vscf_field_callback_29() {
-	$value = get_option( 'vscf-setting-29' );
-	?>
-	<input type='text' size='40' name='vscf-setting-29' value='<?php echo esc_attr($value); ?>' />
-	<p><?php esc_attr_e( 'Disallow banned words in form submissions.', 'very-simple-contact-form' ); ?></p>
-	<p><?php esc_attr_e( 'Use a comma to separate multiple words.', 'very-simple-contact-form' ); ?></p>
-	<?php
-}
-
-function vscf_field_callback_30() {
-	$value = get_option( 'vscf-setting-30' );
-	?>
-	<input type='hidden' name='vscf-setting-30' value='no'>
-	<label><input type='checkbox' name='vscf-setting-30' <?php checked( esc_attr($value), 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Ignore form submissions with banned words.', 'very-simple-contact-form' ); ?></label>
+	<input type='hidden' name='vscf-setting-39' value='no'>
+	<label><input type='checkbox' name='vscf-setting-39' <?php checked( esc_attr($value), 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Ignore form submissions if Message field does not accept email addresses.', 'very-simple-contact-form' ); ?></label>
 	<p><?php esc_attr_e( 'You can activate this if you receive a lot of spam.', 'very-simple-contact-form' ); ?></p>
 	<?php
 }

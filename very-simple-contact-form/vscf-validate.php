@@ -131,10 +131,10 @@ if ( isset($banned_words_message_field) && ($ignore_submission_banned_words != '
 } elseif ( mb_strlen($value_message)<10 ) {
 	$error_class['form_message'] = true;
 	$error = true;
-} elseif ( isset($message_has_links) && ($ignore_submission_email_links != 'yes') ) {
+} elseif ( isset($message_has_links) && ($ignore_submission_links != 'yes') ) {
 	$error_class['form_message_has_links'] = true;
 	$error = true;
-} elseif ( isset($message_has_email) && ($ignore_submission_email_links != 'yes') ) {
+} elseif ( isset($message_has_email) && ($ignore_submission_email != 'yes') ) {
 	$error_class['form_message_has_email'] = true;
 	$error = true;
 }

@@ -9,9 +9,6 @@
 	PanelBody = _wp.components.PanelBody,
 	TextareaControl = _wp.components.TextareaControl,
 	Placeholder = _wp.components.Placeholder,
-	
-	disabled = _wp.components.Disabled,
-	
 	Button = _wp.components.Button;
 
 	registerBlockType('vscf/vscf-block', {
