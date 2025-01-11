@@ -154,11 +154,12 @@ But you can display a form by using the block or the shortcode and a form by usi
 If you want extra fields you should use another contact form plugin, such as [WPForms](https://wordpress.org/plugins/wpforms-lite/).
 
 = Why does form submission fail? =
-An error message is displayed if plugin was unable to send form. Or nothing seems to happen.
+An error message is displayed if plugin was unable to send form. Or nothing seems to happen after pressing submit.
 
 * Install an SMTP plugin and try again
 * If you are using an SMTP plugin, check the settings page of that plugin for mistakes
 * With most SMTP plugins you can test the mail function by sending a test mail
+* Or test the mail function with the [Health Check & Troubleshooting](https://wordpress.org/plugins/health-check/) plugin
 * Disable caching and try again
 * Check the built-in anti-spam features, by activating debugging via the settings page
 
@@ -175,7 +176,7 @@ For more info about caching check the "Cache" section above.
 * Install an SMTP plugin and try again
 * If you are using an SMTP plugin, check the settings page of that plugin for mistakes
 * With most SMTP plugins you can test the mail function by sending a test mail
-* Install another contact form plugin to determine whether it's caused by VS Contact Form or not
+* Or test the mail function with the [Health Check & Troubleshooting](https://wordpress.org/plugins/health-check/) plugin
 
 For more info about SMTP check the "SMTP" section above.
 
@@ -217,8 +218,8 @@ Please open a topic in the WordPress.org support forum for this plugin.
 == Changelog ==
 = Version 16.7 =
 * Have updated the feature to ignore form submissions
-* Ignore form submissions when Message field does not accept links
-* Ignore form submissions when Message field does not accept email addresses
+* Ignore form submissions if Message field does not accept links
+* Ignore form submissions if Message field does not accept email addresses
 * Updated block code
 
 = Version 16.6 =
@@ -230,7 +231,7 @@ Please open a topic in the WordPress.org support forum for this plugin.
 = Version 16.4 =
 * New: choose which form submissions to ignore
 * Ignore form submissions with banned words
-* Ignore form submissions when Message field does not accept links or email addresses
+* Ignore form submissions if Message field does not accept links or email addresses
 
 = Version 16.3 =
 * Minor changes in code

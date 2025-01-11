@@ -2,8 +2,8 @@
 
 = Version 16.7 =
 * Have updated the feature to ignore form submissions
-* Ignore form submissions when Message field does not accept links
-* Ignore form submissions when Message field does not accept email addresses
+* Ignore form submissions if Message field does not accept links
+* Ignore form submissions if Message field does not accept email addresses
 * Updated block code
 
 = Version 16.6 =
@@ -15,7 +15,7 @@
 = Version 16.4 =
 * New: choose which form submissions to ignore
 * Ignore form submissions with banned words
-* Ignore form submissions when Message field does not accept links or email addresses
+* Ignore form submissions if Message field does not accept links or email addresses
 
 = Version 16.3 =
 * Minor changes in code
@@ -67,8 +67,8 @@
 * Minor changes in code
 
 = Version 14.9 =
-* New: setting to allow or disallow email address in Message field
-* New: setting to ignore form submissions with banned words, or when Message field does not accept links or email addresses
+* New: allow or disallow email address in Message field
+* New: ignore form submissions with banned words, or if Message field does not accept links or email addresses
 * Fix: sum placeholder
 
 = Version 14.8 =
@@ -193,7 +193,7 @@
 * Fix: redirect when permalink is set to plain
 * New: added sum to form
 * You can disable sum via the settings page (not recommended)
-* New: setting to allow or disallow links in Message field
+* New: allow or disallow links in Message field
 * Both features may help to reduce spam
 * Changed privacy consent setting
 * You may have to activate or deactivate privacy consent checkbox again
