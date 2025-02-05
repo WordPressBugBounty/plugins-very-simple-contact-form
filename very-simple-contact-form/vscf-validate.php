@@ -111,7 +111,8 @@ if ($allow_links == 'disallow') {
 }
 $count_links = 0;
 foreach ( $message_array as $message_array_value ) {
-	if ( preg_match("/[A-Za-z0-9-]+\.[A-Za-z]/", $message_array_value) && !is_email($message_array_value) ) {
+	$array_for_link_detection = preg_replace('#[^0-9a-z]*$#i', '', $message_array_value);
+	if ( preg_match("/[A-Za-z0-9-]+\.[A-Za-z]/", $array_for_link_detection) && !is_email($array_for_link_detection) ) {
 		$count_links++;
 	}
 }
@@ -120,7 +121,8 @@ if ($count_links > $allowed_links) {
 }
 if ($allow_email == 'disallow') {
 	foreach ( $message_array as $message_array_value ) {
-		if ( is_email( $message_array_value ) ) {
+		$array_for_email_detection = preg_replace('#[^0-9a-z]*$#i', '', $message_array_value);
+		if ( is_email( $array_for_email_detection ) ) {
 			$message_has_email = true;
 		}
 	}

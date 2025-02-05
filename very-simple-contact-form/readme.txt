@@ -1,12 +1,12 @@
 === VS Contact Form ===
 Contributors: Guido07111975
-Version: 16.7
+Version: 16.8
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Requires PHP: 7.0
 Requires at least: 5.0
 Tested up to: 6.7
-Stable tag: 16.7
+Stable tag: 16.8
 Tags: simple, contact, form, contact form, email
 
 
@@ -216,6 +216,9 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 
 == Changelog ==
+= Version 16.8 =
+* Fix: detect email address in Message field
+
 = Version 16.7 =
 * Have updated the feature to ignore form submissions
 * Ignore form submissions if Message field does not accept links
@@ -249,10 +252,6 @@ Please open a topic in the WordPress.org support forum for this plugin.
 = Version 15.9 =
 * New: add a maximum of 5 email addresses for sending via the settings page
 * You can still use the email_to attribute to override this
-
-= Version 15.8 =
-* New: VS Contact Form block
-* Block editor users can now replace their shortcode block with the VS Contact Form block
 
 For all versions please check file changelog.
 
