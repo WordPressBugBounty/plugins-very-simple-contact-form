@@ -39,7 +39,7 @@ $from_header_attribute = $vscf_atts['from_header'];
 $subject_attribute = $vscf_atts['subject'];
 $subject_auto_reply_attribute = $vscf_atts['subject_auto_reply'];
 
-// get settings from settings page
+// get settings from settings page - general
 $email_address_settings_page = get_option('vscf-setting-22');
 $disable_mail = get_option('vscf-setting-28');
 $auto_reply_mail = get_option('vscf-setting-3');
@@ -47,22 +47,27 @@ $subject_settings_page = get_option('vscf-setting-35');
 $subject_auto_reply_settings_page = get_option('vscf-setting-15');
 $list_submissions = get_option('vscf-setting-2');
 $hide_labels = get_option('vscf-setting-27');
-$disable_subject = get_option('vscf-setting-23');
-$disable_sum = get_option('vscf-setting-24');
-$allow_links = get_option('vscf-setting-25');
-$allow_email = get_option('vscf-setting-36');
-$banned_words_string = get_option('vscf-setting-29');
-$ignore_submission_banned_words = get_option('vscf-setting-30');
-$ignore_submission_links = get_option('vscf-setting-38');
-$ignore_submission_email = get_option('vscf-setting-39');
-$input_max = get_option('vscf-setting-32');
-$textarea_max = get_option('vscf-setting-33');
-$disable_privacy = get_option('vscf-setting-4');
+$input_max_length = get_option('vscf-setting-32');
+$textarea_max_length = get_option('vscf-setting-33');
 $disable_ip_address = get_option('vscf-setting-19');
 $form_anchor = get_option('vscf-setting-21');
 $display_errors = get_option('vscf-setting-34');
 
-// get custom labels from settings page
+// get settings from settings page - anti-spam
+$banned_words_string = get_option('vscf-setting-29');
+$allow_links = get_option('vscf-setting-25');
+$allow_email = get_option('vscf-setting-36');
+$ignore_submission_banned_words = get_option('vscf-setting-30');
+$ignore_submission_links = get_option('vscf-setting-38');
+$ignore_submission_email = get_option('vscf-setting-39');
+$minimum_seconds = get_option('vscf-setting-41');
+
+// get settings from settings page - fields
+$disable_subject = get_option('vscf-setting-23');
+$disable_sum = get_option('vscf-setting-24');
+$disable_privacy = get_option('vscf-setting-4');
+
+// get settings from settings page - labels
 $name_label = get_option('vscf-setting-5');
 $email_label = get_option('vscf-setting-6');
 $subject_label = get_option('vscf-setting-7');
@@ -79,7 +84,7 @@ $error_message_has_email_label = get_option('vscf-setting-37');
 $error_banned_words_label = get_option('vscf-setting-31');
 $error_privacy_label = get_option('vscf-setting-14');
 
-// get custom messages from settings page
+// get settings from settings page - messages
 $thank_you_message = get_option('vscf-setting-16');
 $auto_reply_message = get_option('vscf-setting-17');
 
@@ -339,19 +344,20 @@ if (empty($vscf_atts['auto_reply_message'])) {
 }
 
 // max length attribute
-if ( !empty($input_max) ) {
-	$input_max_length = $input_max;
-} else {
+if ( empty($input_max_length) ) {
 	$input_max_length = 100;
 }
-if ( !empty($textarea_max) ) {
-	$textarea_max_length = $textarea_max;
-} else {
+if ( empty($textarea_max_length) ) {
 	$textarea_max_length = 10000;
 }
 
 // clean banned words string
 $banned_words_list = str_replace(' ', '', mb_strtolower($banned_words_string));
+
+// minimum seconds
+if ( empty($minimum_seconds) ) {
+	$minimum_seconds = 5;
+}
 
 // form anchor
 if ($form_anchor == 'yes') {

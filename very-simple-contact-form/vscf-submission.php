@@ -6,7 +6,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // sending and saving form submission
 if ($error == false) {
-	if ( isset($banned_words) && ($ignore_submission_banned_words == 'yes') ) {
+	// ignore form submission in these cases
+	if ( ( isset($error_class['form_first_random']) || isset($error_class['form_second_random']) ) && ($display_errors != 'yes') ) {
+		$sent = true;
+	} elseif ( isset($error_class['form_time']) && ($display_errors != 'yes') ) {
+		$sent = true;
+	} elseif ( isset($banned_words) && ($ignore_submission_banned_words == 'yes') ) {
 		$sent = true;
 	} elseif ( isset($message_has_links) && ($ignore_submission_links == 'yes') ) {
 		$sent = true;

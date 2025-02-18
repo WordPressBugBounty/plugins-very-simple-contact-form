@@ -146,7 +146,9 @@ $form_data['form_message'] = $value_message;
 $value_first_random = $post_data['form_first_random'];
 if ( mb_strlen($value_first_random)>0 ) {
 	$error_class['form_first_random'] = true;
-	$error = true;
+	if ($display_errors == 'yes') {
+		$error = true;
+	}
 }
 $form_data['form_first_random'] = $value_first_random;
 
@@ -154,17 +156,20 @@ $form_data['form_first_random'] = $value_first_random;
 $value_second_random = $post_data['form_second_random'];
 if ( mb_strlen($value_second_random)>0 ) {
 	$error_class['form_second_random'] = true;
-	$error = true;
+	if ($display_errors == 'yes') {
+		$error = true;
+	}
 }
 $form_data['form_second_random'] = $value_second_random;
 
 // validate time field
 $value_time = is_numeric($post_data['form_time']) ? $post_data['form_time'] : time();
 $form_seconds = time() - $value_time;
-$minimal_seconds = 3;
-if ( $form_seconds < $minimal_seconds ) {
+if ( $form_seconds < $minimum_seconds ) {
 	$error_class['form_time'] = true;
-	$error = true;
+	if ($display_errors == 'yes') {
+		$error = true;
+	}
 }
 
 // validate privacy field

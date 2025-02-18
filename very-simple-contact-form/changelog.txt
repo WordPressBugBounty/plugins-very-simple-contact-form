@@ -1,5 +1,11 @@
 == Changelog VS Contact Form ==
 
+= Version 16.9 =
+* Improved anti-spam features
+* New: set the minimum time in seconds between page load and form submission
+* In previous versions this "time trap" was a static value
+* Updated settings page
+
 = Version 16.8 =
 * Fix: detect email address in Message field
 

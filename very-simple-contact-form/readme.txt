@@ -1,12 +1,12 @@
 === VS Contact Form ===
 Contributors: Guido07111975
-Version: 16.8
+Version: 16.9
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Requires PHP: 7.0
 Requires at least: 5.0
 Tested up to: 6.7
-Stable tag: 16.8
+Stable tag: 16.9
 Tags: simple, contact, form, contact form, email
 
 
@@ -216,6 +216,12 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 
 == Changelog ==
+= Version 16.9 =
+* Improved anti-spam features
+* New: set the minimum time in seconds between page load and form submission
+* In previous versions this "time trap" was a static value
+* Updated settings page
+
 = Version 16.8 =
 * Fix: detect email address in Message field
 
@@ -249,18 +255,14 @@ Please open a topic in the WordPress.org support forum for this plugin.
 = Version 16.0 =
 * Minor changes in code
 
-= Version 15.9 =
-* New: add a maximum of 5 email addresses for sending via the settings page
-* You can still use the email_to attribute to override this
-
 For all versions please check file changelog.
 
 
 == Screenshots ==
 1. Form
-2. Form
-3. Form widget
-4. Widget (dashboard)
+2. Form widget
+3. Widget (dashboard)
+4. Settings page (dashboard)
 5. Settings page (dashboard)
 6. Settings page (dashboard)
 7. Settings page (dashboard)

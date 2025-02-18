@@ -39,24 +39,6 @@ function vscf_admin_init() {
 	add_settings_field( 'vscf-field-27', esc_attr__( 'Labels', 'very-simple-contact-form' ), 'vscf_field_callback_27', 'vscf-general', 'vscf-general-section' );
 	register_setting( 'vscf-general-options', 'vscf-setting-27', array('sanitize_callback' => 'sanitize_key') );
 
-	add_settings_field( 'vscf-field-29', esc_attr__( 'Banned words', 'very-simple-contact-form' ), 'vscf_field_callback_29', 'vscf-general', 'vscf-general-section' );
-	register_setting( 'vscf-general-options', 'vscf-setting-29', array('sanitize_callback' => 'sanitize_text_field') );
-
-	add_settings_field( 'vscf-field-30', esc_attr__( 'Submissions', 'very-simple-contact-form' ), 'vscf_field_callback_30', 'vscf-general', 'vscf-general-section' );
-	register_setting( 'vscf-general-options', 'vscf-setting-30', array('sanitize_callback' => 'sanitize_key') );
-
-	add_settings_field( 'vscf-field-25', esc_attr__( 'Links', 'very-simple-contact-form' ), 'vscf_field_callback_25', 'vscf-general', 'vscf-general-section' );
-	register_setting( 'vscf-general-options', 'vscf-setting-25', array('sanitize_callback' => 'sanitize_text_field') );
-
-	add_settings_field( 'vscf-field-38', esc_attr__( 'Submissions', 'very-simple-contact-form' ), 'vscf_field_callback_38', 'vscf-general', 'vscf-general-section' );
-	register_setting( 'vscf-general-options', 'vscf-setting-38', array('sanitize_callback' => 'sanitize_key') );
-
-	add_settings_field( 'vscf-field-36', esc_attr__( 'Email address', 'very-simple-contact-form' ), 'vscf_field_callback_36', 'vscf-general', 'vscf-general-section' );
-	register_setting( 'vscf-general-options', 'vscf-setting-36', array('sanitize_callback' => 'sanitize_text_field') );
-
-	add_settings_field( 'vscf-field-39', esc_attr__( 'Submissions', 'very-simple-contact-form' ), 'vscf_field_callback_39', 'vscf-general', 'vscf-general-section' );
-	register_setting( 'vscf-general-options', 'vscf-setting-39', array('sanitize_callback' => 'sanitize_key') );
-
 	add_settings_field( 'vscf-field-32', esc_attr__( 'Input', 'very-simple-contact-form' ), 'vscf_field_callback_32', 'vscf-general', 'vscf-general-section' );
 	register_setting( 'vscf-general-options', 'vscf-setting-32', array('sanitize_callback' => 'sanitize_text_field') );
 
@@ -71,6 +53,30 @@ function vscf_admin_init() {
 
 	add_settings_field( 'vscf-field-34', esc_attr__( 'Debugging', 'very-simple-contact-form' ), 'vscf_field_callback_34', 'vscf-general', 'vscf-general-section' );
 	register_setting( 'vscf-general-options', 'vscf-setting-34', array('sanitize_callback' => 'sanitize_key') );
+
+	// spam section
+	add_settings_section( 'vscf-spam-section', esc_attr__( 'Anti-spam', 'very-simple-contact-form' ), '', 'vscf-spam' );
+
+	add_settings_field( 'vscf-field-29', esc_attr__( 'Banned words', 'very-simple-contact-form' ), 'vscf_field_callback_29', 'vscf-spam', 'vscf-spam-section' );
+	register_setting( 'vscf-spam-options', 'vscf-setting-29', array('sanitize_callback' => 'sanitize_text_field') );
+
+	add_settings_field( 'vscf-field-30', esc_attr__( 'Submissions', 'very-simple-contact-form' ), 'vscf_field_callback_30', 'vscf-spam', 'vscf-spam-section' );
+	register_setting( 'vscf-spam-options', 'vscf-setting-30', array('sanitize_callback' => 'sanitize_key') );
+
+	add_settings_field( 'vscf-field-25', esc_attr__( 'Links', 'very-simple-contact-form' ), 'vscf_field_callback_25', 'vscf-spam', 'vscf-spam-section' );
+	register_setting( 'vscf-spam-options', 'vscf-setting-25', array('sanitize_callback' => 'sanitize_text_field') );
+
+	add_settings_field( 'vscf-field-38', esc_attr__( 'Submissions', 'very-simple-contact-form' ), 'vscf_field_callback_38', 'vscf-spam', 'vscf-spam-section' );
+	register_setting( 'vscf-spam-options', 'vscf-setting-38', array('sanitize_callback' => 'sanitize_key') );
+
+	add_settings_field( 'vscf-field-36', esc_attr__( 'Email address', 'very-simple-contact-form' ), 'vscf_field_callback_36', 'vscf-spam', 'vscf-spam-section' );
+	register_setting( 'vscf-spam-options', 'vscf-setting-36', array('sanitize_callback' => 'sanitize_text_field') );
+
+	add_settings_field( 'vscf-field-39', esc_attr__( 'Submissions', 'very-simple-contact-form' ), 'vscf_field_callback_39', 'vscf-spam', 'vscf-spam-section' );
+	register_setting( 'vscf-spam-options', 'vscf-setting-39', array('sanitize_callback' => 'sanitize_key') );
+
+	add_settings_field( 'vscf-field-41', esc_attr__( 'Time trap', 'very-simple-contact-form' ), 'vscf_field_callback_41', 'vscf-spam', 'vscf-spam-section' );
+	register_setting( 'vscf-spam-options', 'vscf-setting-41', array('sanitize_callback' => 'sanitize_text_field') );
 
 	// field section
 	add_settings_section( 'vscf-field-section', esc_attr__( 'Fields', 'very-simple-contact-form' ), '', 'vscf-field' );	
@@ -228,6 +234,52 @@ function vscf_field_callback_27() {
 	<?php
 }
 
+function vscf_field_callback_32() {
+	$placeholder = '100';
+	$value = get_option( 'vscf-setting-32' );
+	?>
+	<input type='number' min='10' size='40' name='vscf-setting-32' placeholder='<?php echo esc_attr($placeholder); ?>' value='<?php echo esc_attr($value); ?>' />
+	<?php printf( esc_attr__( 'Default value is %s.', 'very-simple-contact-form' ), '100' ); ?>
+	<p><?php esc_attr_e( 'Limit input by using the maxlength attribute.', 'very-simple-contact-form' ); ?></p>
+	<?php
+}
+
+function vscf_field_callback_33() {
+	$placeholder = '10000';
+	$value = get_option( 'vscf-setting-33' );
+	?>
+	<input type='number' min='10' size='40' name='vscf-setting-33' placeholder='<?php echo esc_attr($placeholder); ?>' value='<?php echo esc_attr($value); ?>' />
+	<?php printf( esc_attr__( 'Default value is %s.', 'very-simple-contact-form' ), '10000' ); ?>
+	<p><?php esc_attr_e( 'Limit input by using the maxlength attribute.', 'very-simple-contact-form' ); ?></p>
+	<?php
+}
+
+function vscf_field_callback_19() {
+	$value = get_option( 'vscf-setting-19' );
+	?>
+	<input type='hidden' name='vscf-setting-19' value='no'>
+	<label><input type='checkbox' name='vscf-setting-19' <?php checked( esc_attr($value), 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Disable collection of IP address.', 'very-simple-contact-form' ); ?></label>
+	<?php
+}
+
+function vscf_field_callback_21() {
+	$value = get_option( 'vscf-setting-21' );
+	?>
+	<input type='hidden' name='vscf-setting-21' value='no'>
+	<label><input type='checkbox' name='vscf-setting-21' <?php checked( esc_attr($value), 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Scroll back to form position after submit.', 'very-simple-contact-form' ); ?></label>
+	<?php
+}
+
+function vscf_field_callback_34() {
+	$value = get_option( 'vscf-setting-34' );
+	?>
+	<input type='hidden' name='vscf-setting-34' value='no'>
+	<label><input type='checkbox' name='vscf-setting-34' <?php checked( esc_attr($value), 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Display validation errors of anti-spam features.', 'very-simple-contact-form' ); ?></label>
+	<p><?php esc_attr_e( 'Errors are displayed underneath form after submit button is clicked.', 'very-simple-contact-form' ); ?></p>
+	<?php
+}
+
+// spam section callbacks
 function vscf_field_callback_29() {
 	$value = get_option( 'vscf-setting-29' );
 	?>
@@ -289,48 +341,13 @@ function vscf_field_callback_39() {
 	<?php
 }
 
-function vscf_field_callback_32() {
-	$placeholder = '100';
-	$value = get_option( 'vscf-setting-32' );
+function vscf_field_callback_41() {
+	$placeholder = '5';
+	$value = get_option( 'vscf-setting-41' );
 	?>
-	<input type='number' min='10' size='40' name='vscf-setting-32' placeholder='<?php echo esc_attr($placeholder); ?>' value='<?php echo esc_attr($value); ?>' />
-	<?php printf( esc_attr__( 'Default value is %s.', 'very-simple-contact-form' ), '100' ); ?>
-	<p><?php esc_attr_e( 'Limit input by using the maxlength attribute.', 'very-simple-contact-form' ); ?></p>
-	<?php
-}
-
-function vscf_field_callback_33() {
-	$placeholder = '10000';
-	$value = get_option( 'vscf-setting-33' );
-	?>
-	<input type='number' min='10' size='40' name='vscf-setting-33' placeholder='<?php echo esc_attr($placeholder); ?>' value='<?php echo esc_attr($value); ?>' />
-	<?php printf( esc_attr__( 'Default value is %s.', 'very-simple-contact-form' ), '10000' ); ?>
-	<p><?php esc_attr_e( 'Limit input by using the maxlength attribute.', 'very-simple-contact-form' ); ?></p>
-	<?php
-}
-
-function vscf_field_callback_19() {
-	$value = get_option( 'vscf-setting-19' );
-	?>
-	<input type='hidden' name='vscf-setting-19' value='no'>
-	<label><input type='checkbox' name='vscf-setting-19' <?php checked( esc_attr($value), 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Disable collection of IP address.', 'very-simple-contact-form' ); ?></label>
-	<?php
-}
-
-function vscf_field_callback_21() {
-	$value = get_option( 'vscf-setting-21' );
-	?>
-	<input type='hidden' name='vscf-setting-21' value='no'>
-	<label><input type='checkbox' name='vscf-setting-21' <?php checked( esc_attr($value), 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Scroll back to form position after submit.', 'very-simple-contact-form' ); ?></label>
-	<?php
-}
-
-function vscf_field_callback_34() {
-	$value = get_option( 'vscf-setting-34' );
-	?>
-	<input type='hidden' name='vscf-setting-34' value='no'>
-	<label><input type='checkbox' name='vscf-setting-34' <?php checked( esc_attr($value), 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Display validation errors of anti-spam features.', 'very-simple-contact-form' ); ?></label>
-	<p><?php esc_attr_e( 'Errors are displayed underneath form after submit button is clicked.', 'very-simple-contact-form' ); ?></p>
+	<input type='number' min='5' max='60' size='10' name='vscf-setting-41' placeholder='<?php echo esc_attr($placeholder); ?>' value='<?php echo esc_attr($value); ?>' />
+	<?php printf( esc_attr__( 'Default value is %s.', 'very-simple-contact-form' ), '5' ); ?>
+	<p><?php esc_attr_e( 'Minimum time in seconds between page load and form submission.', 'very-simple-contact-form' ); ?></p>
 	<?php
 }
 
@@ -515,6 +532,7 @@ function vscf_options_page() {
 	<?php $active_tab = isset($_GET['tab']) ? sanitize_key($_GET['tab']) : 'general_options'; ?>
 	<h2 class="nav-tab-wrapper">
 		<a href="?page=vscf&tab=general_options" class="nav-tab <?php echo esc_attr($active_tab) == 'general_options' ? 'nav-tab-active' : ''; ?>"><?php esc_attr_e( 'General', 'very-simple-contact-form' ); ?></a>
+		<a href="?page=vscf&tab=spam_options" class="nav-tab <?php echo esc_attr($active_tab) == 'spam_options' ? 'nav-tab-active' : ''; ?>"><?php esc_attr_e( 'Anti-spam', 'very-simple-contact-form' ); ?></a>
 		<a href="?page=vscf&tab=field_options" class="nav-tab <?php echo esc_attr($active_tab) == 'field_options' ? 'nav-tab-active' : ''; ?>"><?php esc_attr_e( 'Fields', 'very-simple-contact-form' ); ?></a>
 		<a href="?page=vscf&tab=label_options" class="nav-tab <?php echo esc_attr($active_tab) == 'label_options' ? 'nav-tab-active' : ''; ?>"><?php esc_attr_e( 'Labels', 'very-simple-contact-form' ); ?></a>
 		<a href="?page=vscf&tab=message_options" class="nav-tab <?php echo esc_attr($active_tab) == 'message_options' ? 'nav-tab-active' : ''; ?>"><?php esc_attr_e( 'Messages', 'very-simple-contact-form' ); ?></a>
@@ -523,6 +541,9 @@ function vscf_options_page() {
 		<?php if ( $active_tab == 'general_options' ) {
 			settings_fields( 'vscf-general-options' );
 			do_settings_sections( 'vscf-general' );
+		} elseif ( $active_tab == 'spam_options' ) {
+			settings_fields( 'vscf-spam-options' );
+			do_settings_sections( 'vscf-spam' );
 		} elseif ( $active_tab == 'field_options' ) {
 			settings_fields( 'vscf-field-options' );
 			do_settings_sections( 'vscf-field' );
