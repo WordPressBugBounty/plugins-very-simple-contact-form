@@ -1,7 +1,7 @@
 === VS Contact Form ===
 Contributors: Guido07111975
-Version: 17.0
-Stable tag: 17.0
+Version: 17.1
+Stable tag: 17.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Requires PHP: 7.4
@@ -219,6 +219,9 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 
 == Changelog ==
+= Version 17.1 =
+* Fix: textarea
+
 = Version 17.0 =
 * Code improvements
 * Improved form validation
@@ -257,9 +260,6 @@ Please open a topic in the WordPress.org support forum for this plugin.
 = Version 16.2 =
 * Fix: detect email address in Message field
 * Minor changes in code
-
-= Version 16.1 =
-* Fix: typo
 
 For all versions please check file changelog.
 

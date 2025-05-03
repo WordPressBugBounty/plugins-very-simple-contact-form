@@ -510,7 +510,7 @@ function vscf_field_callback_16() {
 	$placeholder = __( 'Thank you! You will receive a response as soon as possible.', 'very-simple-contact-form' );
 	$value = get_option( 'vscf-setting-16' );
 	?>
-	<textarea name="vscf-setting-16" rows"8" cols="50" maxlength="2000" style="min-width:50%;" placeholder="<?php echo esc_attr( $placeholder ); ?>"><?php echo wp_kses_post( $value ); ?></textarea>
+	<textarea name="vscf-setting-16" rows="8" cols="50" maxlength="2000" style="min-width:50%;" placeholder="<?php echo esc_attr( $placeholder ); ?>"><?php echo wp_kses_post( $value ); ?></textarea>
 	<p><?php esc_html_e( 'Displayed when sending succeeds.', 'very-simple-contact-form' ); ?></p>
 	<?php
 }
@@ -519,7 +519,7 @@ function vscf_field_callback_17() {
 	$placeholder = __( 'Thank you! You will receive a response as soon as possible.', 'very-simple-contact-form' );
 	$value = get_option( 'vscf-setting-17' );
 	?>
-	<textarea name="vscf-setting-17" rows"8" cols="50" maxlength="2000" style="min-width:50%;" placeholder="<?php echo esc_attr( $placeholder ); ?>"><?php echo wp_kses_post( $value ); ?></textarea>
+	<textarea name="vscf-setting-17" rows="8" cols="50" maxlength="2000" style="min-width:50%;" placeholder="<?php echo esc_attr( $placeholder ); ?>"><?php echo wp_kses_post( $value ); ?></textarea>
 	<p><?php esc_html_e( 'Displayed in the auto-reply email to sender.', 'very-simple-contact-form' ); ?></p>
 	<?php
 }
