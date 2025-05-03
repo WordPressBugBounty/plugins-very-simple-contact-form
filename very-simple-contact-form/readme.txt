@@ -1,12 +1,12 @@
 === VS Contact Form ===
 Contributors: Guido07111975
-Version: 16.9
+Version: 17.0
+Stable tag: 17.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-Requires PHP: 7.0
-Requires at least: 5.0
-Tested up to: 6.7
-Stable tag: 16.9
+Requires PHP: 7.4
+Requires at least: 6.0
+Tested up to: 6.8
 Tags: simple, contact, form, contact form, email
 
 
@@ -205,6 +205,9 @@ I did my best to meet the conditions of the GDPR:
 * You can easily delete form submissions
 * You can disable form submissions being stored in datebase
 
+= Can I use the plugin on a ClassicPress website? =
+Yes you can! Obviously you cannot use the block, so use the shortcode instead.
+
 = Why is there no semantic versioning? =
 The version number won't give you info about the type of update (major, minor, patch). You should check the changelog to see whether or not the update is a major or minor one.
 
@@ -216,6 +219,12 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 
 == Changelog ==
+= Version 17.0 =
+* Code improvements
+* Improved form validation
+* Bumped the "requires PHP" version to 7.4
+* Bumped the "Requires at least" version to 6.0
+
 = Version 16.9 =
 * Improved anti-spam features
 * New: set the minimum time in seconds between page load and form submission
@@ -251,9 +260,6 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 = Version 16.1 =
 * Fix: typo
-
-= Version 16.0 =
-* Minor changes in code
 
 For all versions please check file changelog.
 

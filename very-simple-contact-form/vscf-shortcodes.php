@@ -5,55 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // shortcode for page
-function vscf_shortcode($vscf_atts) {
-	// attributes
-	$vscf_atts = shortcode_atts(array(
-		'class' => '',
-		'email_to' => '',
-		'from_header' => '',
-		'subject' => '',
-		'subject_auto_reply' => '',
-		'label_name' => '',
-		'label_email' => '',
-		'label_subject' => '',
-		'label_message' => '',
-		'label_privacy' => '',
-		'label_submit' => '',
-		'placeholder_name' =>  '',
-		'placeholder_email' =>  '',
-		'placeholder_subject' =>  '',
-		'placeholder_message' =>  '',
-		'error_name' => '',
-		'error_email' => '',
-		'error_subject' => '',
-		'error_sum' => '',
-		'error_message' => '',
-		'error_message_has_links' => '',
-		'error_message_has_email' => '',
-		'error_banned_words' => '',
-		'error_privacy' => '',
-		'thank_you_message' => '',
-		'auto_reply_message' => ''
-	), $vscf_atts);
-
-	// initialize variables
-	$form_data = array(
-		'form_name' => '',
-		'form_email' => '',
-		'form_subject' => '',
-		'form_sum' => '',
-		'form_message' => '',
-		'form_privacy' => '',
-		'form_first_random' => '',
-		'form_second_random' => '',
-		'form_time' => ''
-	);
-	$error = false;
-	$mail_sends = false;
-	$mail_fails = false;
-	$sent = false;
-	$fail = false;
-
+function vscf_shortcode( $vscf_atts ) {
 	// include variables
 	include 'vscf-variables.php';
 
@@ -65,43 +17,43 @@ function vscf_shortcode($vscf_atts) {
 	$submit_id = 'vscf_send';
 
 	// set form class
-	if ( empty($vscf_atts['class']) ) {
+	if ( empty( $vscf_atts['class'] ) ) {
 		$custom_class = '';
 	} else {
-		$custom_class = ' '.sanitize_key($vscf_atts['class']);
+		$custom_class = ' '.$vscf_atts['class'];
 	}
 	$form_class = 'vscf-shortcode'.$custom_class.'';
 
 	// processing form
-	if ( ($_SERVER['REQUEST_METHOD'] == 'POST') && isset($_POST['vscf_send_'.$rand_suffix.'']) ) {
+	if ( ( $_SERVER['REQUEST_METHOD'] == 'POST' ) && isset( $_POST['vscf_send_'.$rand_suffix.''] ) ) {
 		// validate form nonce
-		$value_nonce = sanitize_text_field($_POST['vscf_nonce']);
+		$value_nonce = sanitize_text_field( $_POST['vscf_nonce'] );
 		if ( ! wp_verify_nonce( $value_nonce, 'vscf_nonce_action' ) ) {
 			$error_class['form_nonce'] = true;
 			$error = true;
 		}
 		// set input values
-		if (($disable_subject != 'yes') && isset($_POST['vscf_subject_'.$rand_suffix.''])) {
+		if ( ( $disable_subject != 'yes' ) && isset( $_POST['vscf_subject_'.$rand_suffix.''] ) ) {
 			$subject_value = $_POST['vscf_subject_'.$rand_suffix.''];
 		} else {
 			$subject_value = '';
 		}
-		if (($disable_privacy != 'yes') && isset($_POST['vscf_privacy_'.$rand_suffix.''])) {
+		if ( ( $disable_privacy != 'yes' ) && isset( $_POST['vscf_privacy_'.$rand_suffix.''] ) ) {
 			$privacy_value = $_POST['vscf_privacy_'.$rand_suffix.''];
 		} else {
 			$privacy_value = '';
 		}
 		// sanitize input
 		$post_data = array(
-			'form_name' => sanitize_text_field($_POST['vscf_name_'.$rand_suffix.'']),
-			'form_email' => sanitize_email($_POST['vscf_email_'.$rand_suffix.'']),
-			'form_subject' => sanitize_text_field($subject_value),
-			'form_sum' => sanitize_text_field($_POST['vscf_sum_'.$rand_suffix.'']),
-			'form_message' => sanitize_textarea_field($_POST['vscf_message_'.$rand_suffix.'']),
-			'form_privacy' => sanitize_key($privacy_value),
-			'form_first_random' => sanitize_text_field($_POST['vscf_first_random_'.$rand_suffix.'']),
-			'form_second_random' => sanitize_text_field($_POST['vscf_second_random_'.$rand_suffix.'']),
-			'form_time' => sanitize_text_field($_POST['vscf_time_'.$rand_suffix.''])
+			'form_name' => sanitize_text_field( $_POST['vscf_name_'.$rand_suffix.''] ),
+			'form_email' => sanitize_email( $_POST['vscf_email_'.$rand_suffix.''] ),
+			'form_subject' => sanitize_text_field( $subject_value ),
+			'form_sum' => sanitize_text_field( $_POST['vscf_sum_'.$rand_suffix.''] ),
+			'form_message' => sanitize_textarea_field( $_POST['vscf_message_'.$rand_suffix.''] ),
+			'form_privacy' => sanitize_key( $privacy_value ),
+			'form_first_random' => sanitize_text_field( $_POST['vscf_first_random_'.$rand_suffix.''] ),
+			'form_second_random' => sanitize_text_field( $_POST['vscf_second_random_'.$rand_suffix.''] ),
+			'form_time' => sanitize_text_field( $_POST['vscf_time_'.$rand_suffix.''] )
 		);
 
 		// include validation
@@ -115,81 +67,33 @@ function vscf_shortcode($vscf_atts) {
 	include 'vscf-form.php';
 
 	// after form validation
-	if ($sent == true) {
-		delete_transient($transient_name);
+	if ( $sent == true ) {
+		delete_transient( $transient_name );
 		return '<script>window.location="'.vscf_redirect_success().'"</script>';
-	} elseif ($fail == true) {
-		delete_transient($transient_name);
+	} elseif ( $fail == true ) {
+		delete_transient( $transient_name );
 		return '<script>window.location="'.vscf_redirect_error().'"</script>';
 	}
 
 	// display form or the result of submission
 	if ( isset( $_GET['vscf-sh'] ) ) {
-		if ( sanitize_key($_GET['vscf-sh']) == 'success' ) {
-			return $anchor_begin.'<div class="vscf-info">'.wpautop( wp_kses_post($thank_you_message) ).'</div>'.$anchor_end;
-		} elseif ( sanitize_key($_GET['vscf-sh']) == 'fail' ) {
-			return $anchor_begin.'<div class="vscf-info">'.esc_attr__( 'Error: could not send form', 'very-simple-contact-form' ).'</div>'.$anchor_end;
+		if ( sanitize_key( $_GET['vscf-sh'] ) == 'success' ) {
+			return $anchor_begin.'<div class="vscf-info">'.wp_kses_post( wpautop( $thank_you_message ) ).'</div>'.$anchor_end;
+		} elseif ( sanitize_key( $_GET['vscf-sh'] ) == 'fail' ) {
+			return $anchor_begin.'<div class="vscf-info">'.esc_html__( 'Error: could not send form', 'very-simple-contact-form' ).'</div>'.$anchor_end;
 		}
 	} else {
-		if ($error == true) {
+		if ( $error == true ) {
 			return $anchor_begin .$email_form. $anchor_end;
 		} else {
 			return $email_form;
 		}
 	}
 }
-add_shortcode('contact', 'vscf_shortcode');
+add_shortcode( 'contact', 'vscf_shortcode' );
 
 // shortcode for widget
-function vscf_widget_shortcode($vscf_atts) {
-	// attributes
-	$vscf_atts = shortcode_atts(array(
-		'class' => '',
-		'email_to' => '',
-		'from_header' => '',
-		'subject' => '',
-		'subject_auto_reply' => '',
-		'label_name' => '',
-		'label_email' => '',
-		'label_subject' => '',
-		'label_message' => '',
-		'label_privacy' => '',
-		'label_submit' => '',
-		'placeholder_name' =>  '',
-		'placeholder_email' =>  '',
-		'placeholder_subject' =>  '',
-		'placeholder_message' =>  '',
-		'error_name' => '',
-		'error_email' => '',
-		'error_subject' => '',
-		'error_sum' => '',
-		'error_message' => '',
-		'error_message_has_links' => '',
-		'error_message_has_email' => '',
-		'error_banned_words' => '',
-		'error_privacy' => '',
-		'thank_you_message' => '',
-		'auto_reply_message' => ''
-	), $vscf_atts);
-
-	// initialize variables
-	$form_data = array(
-		'form_name' => '',
-		'form_email' => '',
-		'form_subject' => '',
-		'form_sum' => '',
-		'form_message' => '',
-		'form_privacy' => '',
-		'form_first_random' => '',
-		'form_second_random' => '',
-		'form_time' => ''
-	);
-	$error = false;
-	$mail_sends = false;
-	$mail_fails = false;
-	$sent = false;
-	$fail = false;
-
+function vscf_widget_shortcode( $vscf_atts ) {
 	// include variables
 	include 'vscf-variables.php';
 
@@ -201,43 +105,43 @@ function vscf_widget_shortcode($vscf_atts) {
 	$submit_id = 'vscf_widget_send';
 
 	// set form class
-	if ( empty($vscf_atts['class']) ) {
+	if ( empty( $vscf_atts['class'] ) ) {
 		$custom_class = '';
 	} else {
-		$custom_class = ' '.sanitize_key($vscf_atts['class']);
+		$custom_class = ' '.$vscf_atts['class'];
 	}
 	$form_class = 'vscf-widget'.$custom_class.'';
 
 	// processing form
-	if ( ($_SERVER['REQUEST_METHOD'] == 'POST') && isset($_POST['vscf_widget_send_'.$rand_suffix.'']) ) {
+	if ( ( $_SERVER['REQUEST_METHOD'] == 'POST' ) && isset( $_POST['vscf_widget_send_'.$rand_suffix.''] ) ) {
 		// validate form nonce
-		$value_nonce = sanitize_text_field($_POST['vscf_widget_nonce']);
+		$value_nonce = sanitize_text_field( $_POST['vscf_widget_nonce'] );
 		if ( ! wp_verify_nonce( $value_nonce, 'vscf_nonce_action' ) ) {
 			$error_class['form_nonce'] = true;
 			$error = true;
 		}
 		// set input values
-		if (($disable_subject != 'yes') && isset($_POST['vscf_subject_'.$rand_suffix.''])) {
+		if ( ( $disable_subject != 'yes' ) && isset( $_POST['vscf_subject_'.$rand_suffix.''] ) ) {
 			$subject_value = $_POST['vscf_subject_'.$rand_suffix.''];
 		} else {
 			$subject_value = '';
 		}
-		if (($disable_privacy != 'yes') && isset($_POST['vscf_privacy_'.$rand_suffix.''])) {
+		if ( ( $disable_privacy != 'yes' ) && isset( $_POST['vscf_privacy_'.$rand_suffix.''] ) ) {
 			$privacy_value = $_POST['vscf_privacy_'.$rand_suffix.''];
 		} else {
 			$privacy_value = '';
 		}
 		// sanitize input
 		$post_data = array(
-			'form_name' => sanitize_text_field($_POST['vscf_name_'.$rand_suffix.'']),
-			'form_email' => sanitize_email($_POST['vscf_email_'.$rand_suffix.'']),
-			'form_subject' => sanitize_text_field($subject_value),
-			'form_sum' => sanitize_text_field($_POST['vscf_sum_'.$rand_suffix.'']),
-			'form_message' => sanitize_textarea_field($_POST['vscf_message_'.$rand_suffix.'']),
-			'form_privacy' => sanitize_key($privacy_value),
-			'form_first_random' => sanitize_text_field($_POST['vscf_first_random_'.$rand_suffix.'']),
-			'form_second_random' => sanitize_text_field($_POST['vscf_second_random_'.$rand_suffix.'']),
-			'form_time' => sanitize_text_field($_POST['vscf_time_'.$rand_suffix.''])
+			'form_name' => sanitize_text_field( $_POST['vscf_name_'.$rand_suffix.''] ),
+			'form_email' => sanitize_email( $_POST['vscf_email_'.$rand_suffix.''] ),
+			'form_subject' => sanitize_text_field( $subject_value ),
+			'form_sum' => sanitize_text_field( $_POST['vscf_sum_'.$rand_suffix.''] ),
+			'form_message' => sanitize_textarea_field( $_POST['vscf_message_'.$rand_suffix.''] ),
+			'form_privacy' => sanitize_key( $privacy_value ),
+			'form_first_random' => sanitize_text_field( $_POST['vscf_first_random_'.$rand_suffix.''] ),
+			'form_second_random' => sanitize_text_field( $_POST['vscf_second_random_'.$rand_suffix.''] ),
+			'form_time' => sanitize_text_field( $_POST['vscf_time_'.$rand_suffix.''] )
 		);
 
 		// include validation
@@ -251,27 +155,27 @@ function vscf_widget_shortcode($vscf_atts) {
 	include 'vscf-form.php';
 
 	// after form validation
-	if ($sent == true) {
-		delete_transient($transient_name);
+	if ( $sent == true ) {
+		delete_transient( $transient_name );
 		return '<script>window.location="'.vscf_widget_redirect_success().'"</script>';
-	} elseif ($fail == true) {
-		delete_transient($transient_name);
+	} elseif ( $fail == true ) {
+		delete_transient( $transient_name );
 		return '<script>window.location="'.vscf_widget_redirect_error().'"</script>';
 	}
 
 	// display form or the result of submission
 	if ( isset( $_GET['vscf-wi'] ) ) {
-		if ( sanitize_key($_GET['vscf-wi']) == 'success' ) {
-			return $anchor_begin.'<div class="vscf-info">'.wpautop( wp_kses_post($thank_you_message) ).'</div>'.$anchor_end;
-		} elseif ( sanitize_key($_GET['vscf-wi']) == 'fail' ) {
-			return $anchor_begin.'<div class="vscf-info">'.esc_attr__( 'Error: could not send form', 'very-simple-contact-form' ).'</div>'.$anchor_end;
+		if ( sanitize_key( $_GET['vscf-wi'] ) == 'success' ) {
+			return $anchor_begin.'<div class="vscf-info">'.wp_kses_post( wpautop( $thank_you_message ) ).'</div>'.$anchor_end;
+		} elseif ( sanitize_key( $_GET['vscf-wi'] ) == 'fail' ) {
+			return $anchor_begin.'<div class="vscf-info">'.esc_html__( 'Error: could not send form', 'very-simple-contact-form' ).'</div>'.$anchor_end;
 		}
 	} else {
-		if ($error == true) {
+		if ( $error == true ) {
 			return $anchor_begin .$email_form. $anchor_end;
 		} else {
 			return $email_form;
 		}
 	}
 }
-add_shortcode('contact-widget', 'vscf_widget_shortcode');
+add_shortcode( 'contact-widget', 'vscf_widget_shortcode' );

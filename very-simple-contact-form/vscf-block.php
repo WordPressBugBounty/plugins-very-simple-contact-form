@@ -38,17 +38,17 @@ add_action( 'init', 'vscf_register_block' );
 function vscf_enqueue_block_editor_assets() {
 	wp_enqueue_style(
 		'vscf-style',
-		plugins_url('/css/vscf-style.min.css',__FILE__ )
+		plugins_url( '/css/vscf-style.min.css',__FILE__ )
 	);
 	wp_enqueue_style(
 		'vscf-block-style',
-		plugins_url('/css/vscf-block-style.min.css',__FILE__ )
+		plugins_url( '/css/vscf-block-style.min.css',__FILE__ )
 	);
 	wp_enqueue_script(
 		'vscf-block-script',
 		plugins_url( '/js/vscf-block.js' , __FILE__ ),
 		array( 'wp-blocks', 'wp-i18n', 'wp-element' ),
-		false,
+		null,
 		true
 	);
 	$dataL10n = array(

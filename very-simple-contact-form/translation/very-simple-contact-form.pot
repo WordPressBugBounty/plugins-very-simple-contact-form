@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: VS Contact Form\n"
-"POT-Creation-Date: 2025-02-18 21:05+0100\n"
+"POT-Creation-Date: 2025-05-03 12:38+0200\n"
 "PO-Revision-Date: 2015-08-14 23:18+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -87,18 +87,18 @@ msgid "Email address"
 msgstr ""
 
 #: vscf-options.php:24 vscf-options.php:27 vscf-options.php:151
-#: vscf-options.php:390 vscf-variables.php:107 vscf.php:62
+#: vscf-options.php:390 vscf-variables.php:155 vscf.php:62
 msgid "Email"
 msgstr ""
 
 #: vscf-options.php:30 vscf-options.php:33 vscf-options.php:84
 #: vscf-options.php:102 vscf-options.php:120 vscf-options.php:398
-#: vscf-variables.php:119
+#: vscf-variables.php:167
 msgid "Subject"
 msgstr ""
 
 #: vscf-options.php:36 vscf-options.php:63 vscf-options.php:69
-#: vscf-options.php:75 vscf.php:43
+#: vscf-options.php:75 vscf.php:44
 msgid "Submissions"
 msgstr ""
 
@@ -152,16 +152,16 @@ msgid "Sum"
 msgstr ""
 
 #: vscf-options.php:96 vscf-options.php:114 vscf-options.php:382
-#: vscf-variables.php:95 vscf.php:61
+#: vscf-variables.php:143 vscf.php:61
 msgid "Name"
 msgstr ""
 
 #: vscf-options.php:105 vscf-options.php:126 vscf-options.php:130
-#: vscf-options.php:135 vscf-options.php:406 vscf-variables.php:131
+#: vscf-options.php:135 vscf-options.php:406 vscf-variables.php:179
 msgid "Message"
 msgstr ""
 
-#: vscf-options.php:111 vscf-options.php:422 vscf-variables.php:155
+#: vscf-options.php:111 vscf-options.php:422 vscf-variables.php:203
 msgid "Submit"
 msgstr ""
 
@@ -318,29 +318,29 @@ msgstr ""
 msgid "This field is part of the anti-spam features."
 msgstr ""
 
-#: vscf-options.php:414 vscf-variables.php:143
+#: vscf-options.php:414 vscf-variables.php:191
 msgid ""
 "I consent to having this website collect my personal data via this form."
 msgstr ""
 
-#: vscf-options.php:430 vscf-options.php:446 vscf-variables.php:218
-#: vscf-variables.php:242
+#: vscf-options.php:430 vscf-options.php:446 vscf-variables.php:266
+#: vscf-variables.php:290
 msgid "Please enter at least 2 characters"
 msgstr ""
 
-#: vscf-options.php:438 vscf-variables.php:230
+#: vscf-options.php:438 vscf-variables.php:278
 msgid "Please enter a valid email"
 msgstr ""
 
-#: vscf-options.php:454 vscf-variables.php:254
+#: vscf-options.php:454 vscf-variables.php:302
 msgid "Please enter the correct result"
 msgstr ""
 
-#: vscf-options.php:462 vscf-variables.php:266
+#: vscf-options.php:462 vscf-variables.php:314
 msgid "Please enter at least 10 characters"
 msgstr ""
 
-#: vscf-options.php:470 vscf-variables.php:278
+#: vscf-options.php:470 vscf-variables.php:326
 msgid "Please remove links"
 msgstr ""
 
@@ -352,7 +352,7 @@ msgstr ""
 msgid "Links are not allowed."
 msgstr ""
 
-#: vscf-options.php:484 vscf-variables.php:290
+#: vscf-options.php:484 vscf-variables.php:338
 msgid "Please remove email addresses"
 msgstr ""
 
@@ -360,16 +360,16 @@ msgstr ""
 msgid "Email addresses are not allowed."
 msgstr ""
 
-#: vscf-options.php:493 vscf-variables.php:302
+#: vscf-options.php:493 vscf-variables.php:350
 msgid "Please remove banned words"
 msgstr ""
 
-#: vscf-options.php:501 vscf-variables.php:314
+#: vscf-options.php:501 vscf-variables.php:362
 msgid "Please give your consent"
 msgstr ""
 
-#: vscf-options.php:510 vscf-options.php:519 vscf-variables.php:326
-#: vscf-variables.php:338
+#: vscf-options.php:510 vscf-options.php:519 vscf-variables.php:374
+#: vscf-variables.php:386
 msgid "Thank you! You will receive a response as soon as possible."
 msgstr ""
 
@@ -385,7 +385,7 @@ msgstr ""
 msgid "You can also use attributes to customize your contact form."
 msgstr ""
 
-#: vscf-shortcodes.php:131 vscf-shortcodes.php:267
+#: vscf-shortcodes.php:83 vscf-shortcodes.php:171
 msgid "Error: could not send form"
 msgstr ""
 

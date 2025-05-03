@@ -1,5 +1,11 @@
 == Changelog VS Contact Form ==
 
+= Version 17.0 =
+* Code improvements
+* Improved form validation
+* Bumped the "requires PHP" version to 7.4
+* Bumped the "Requires at least" version to 6.0
+
 = Version 16.9 =
 * Improved anti-spam features
 * New: set the minimum time in seconds between page load and form submission
