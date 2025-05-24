@@ -2,7 +2,7 @@
 /*
  * Plugin Name: VS Contact Form
  * Description: With this lightweight plugin you can create a contact form.
- * Version: 17.1
+ * Version: 17.2
  * Author: Guido
  * Author URI: https://www.guido.site
  * License: GPLv3
@@ -236,7 +236,7 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'vscf_action_l
 
 // disable form in block editor
 function vscf_disable_form() {
-	if ( defined( 'REST_REQUEST' ) && REST_REQUEST && ( 'edit' === $_GET['context'] ) ) {
+	if ( defined( 'REST_REQUEST' ) && REST_REQUEST && isset( $_GET['context'] ) && ( 'edit' === $_GET['context'] ) ) {
 		$disable = true;
 	} else {
 		$disable = false;

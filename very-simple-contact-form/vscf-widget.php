@@ -23,12 +23,12 @@ class vscf_widget extends WP_Widget {
 		$vscf_attributes = $instance['vscf_attributes'];
 		// widget input fields
 		?>
-		<p><label for="<?php echo $this->get_field_id( 'vscf_title' ); ?>"><?php esc_html_e( 'Title', 'very-simple-contact-form' ); ?>:</label>
-		<input class="widefat" id="<?php echo $this->get_field_id( 'vscf_title' ); ?>" name="<?php echo $this->get_field_name( 'vscf_title' ); ?>" type="text" value="<?php echo esc_attr( $vscf_title ); ?>"></p>
-		<p><label for="<?php echo $this->get_field_id( 'vscf_text' ); ?>"><?php esc_html_e( 'Text above form', 'very-simple-contact-form' ); ?>:</label>
-		<textarea class="widefat monospace" rows="6" cols="20" id="<?php echo $this->get_field_id( 'vscf_text' ); ?>" name="<?php echo $this->get_field_name( 'vscf_text' ); ?>"><?php echo wp_kses_post( $vscf_text ); ?></textarea></p>
-		<p><label for="<?php echo $this->get_field_id( 'vscf_attributes' ); ?>"><?php esc_html_e( 'Attributes', 'very-simple-contact-form' ); ?>:</label>
-		<textarea class="widefat monospace" rows="3" cols="20" id="<?php echo $this->get_field_id( 'vscf_attributes' ); ?>" name="<?php echo $this->get_field_name( 'vscf_attributes' ); ?>" placeholder="<?php esc_attr_e( 'Example', 'very-simple-contact-form' ); ?>: email_to=&quot;info@example.com&quot;"><?php echo wp_kses_post( $vscf_attributes ); ?></textarea></p>
+		<p><label for="<?php echo esc_attr( $this->get_field_id( 'vscf_title' ) ); ?>"><?php esc_html_e( 'Title', 'very-simple-contact-form' ); ?>:</label>
+		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'vscf_title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'vscf_title' ) ); ?>" type="text" value="<?php echo esc_attr( $vscf_title ); ?>"></p>
+		<p><label for="<?php echo esc_attr( $this->get_field_id( 'vscf_text' ) ); ?>"><?php esc_html_e( 'Text above form', 'very-simple-contact-form' ); ?>:</label>
+		<textarea class="widefat monospace" rows="6" cols="20" id="<?php echo esc_attr( $this->get_field_id( 'vscf_text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'vscf_text' ) ); ?>"><?php echo wp_kses_post( $vscf_text ); ?></textarea></p>
+		<p><label for="<?php echo esc_attr( $this->get_field_id( 'vscf_attributes' ) ); ?>"><?php esc_html_e( 'Attributes', 'very-simple-contact-form' ); ?>:</label>
+		<textarea class="widefat monospace" rows="3" cols="20" id="<?php echo esc_attr( $this->get_field_id( 'vscf_attributes' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'vscf_attributes' ) ); ?>" placeholder="<?php esc_attr_e( 'Example', 'very-simple-contact-form' ); ?>: email_to=&quot;info@example.com&quot;"><?php echo wp_kses_post( $vscf_attributes ); ?></textarea></p>
 		<p><?php esc_html_e( 'For info and available attributes', 'very-simple-contact-form' ); ?> <?php echo '<a href="https://wordpress.org/plugins/very-simple-contact-form" rel="noopener noreferrer" target="_blank">'.esc_html__( 'click here', 'very-simple-contact-form' ).'</a>'; ?>.</p>
 		<?php
 	}
@@ -54,7 +54,7 @@ class vscf_widget extends WP_Widget {
 		}
 		$content = '[contact-widget';
 		if ( ! empty( $instance['vscf_attributes'] ) ) {
-			$content .= ' '.wp_strip_all_tags( $instance['vscf_attributes'] );
+			$content .= ' '.wp_strip_all_tags( $instance['vscf_attributes'], true );
 		}
 		$content .= ']';
 		echo do_shortcode( $content );

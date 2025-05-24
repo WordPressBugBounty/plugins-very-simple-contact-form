@@ -1,7 +1,7 @@
 === VS Contact Form ===
 Contributors: Guido07111975
-Version: 17.1
-Stable tag: 17.1
+Version: 17.2
+Stable tag: 17.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Requires PHP: 7.4
@@ -219,6 +219,9 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 
 == Changelog ==
+= Version 17.2 =
+* Minor changes in code
+
 = Version 17.1 =
 * Fix: textarea
 
@@ -255,10 +258,6 @@ Please open a topic in the WordPress.org support forum for this plugin.
 * Ignore form submissions if Message field does not accept links or email addresses
 
 = Version 16.3 =
-* Minor changes in code
-
-= Version 16.2 =
-* Fix: detect email address in Message field
 * Minor changes in code
 
 For all versions please check file changelog.

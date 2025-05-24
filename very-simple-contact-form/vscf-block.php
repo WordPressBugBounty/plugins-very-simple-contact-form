@@ -24,7 +24,7 @@ function vscf_register_block() {
 		'vscf/vscf-block',
 		array(
 			'attributes' => $attributes,
-			'render_callback' => 'vscf_get_contact_form'
+			'render_callback' => 'vscf_block_content'
 		)
 	);
 }
@@ -73,10 +73,10 @@ add_action( 'enqueue_block_editor_assets', 'vscf_enqueue_block_editor_assets' );
  *
  * @since 15.8
  */
-function vscf_get_contact_form( $attr ) {
+function vscf_block_content( $attr ) {
 	$return = '';
 	$shortcode_settings = isset( $attr['shortcodeSettings'] ) ? $attr['shortcodeSettings'] : '';
 	$shortcode_settings = str_replace( array( '[', ']' ), '', $shortcode_settings );
-	$return .= do_shortcode( '[contact ' . $shortcode_settings . ']' );
+	$return .= do_shortcode( '[contact ' . wp_strip_all_tags( $shortcode_settings, true ) . ']' );
 	return $return;
 }

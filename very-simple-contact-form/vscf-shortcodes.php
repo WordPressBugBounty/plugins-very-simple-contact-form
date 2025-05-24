@@ -25,7 +25,7 @@ function vscf_shortcode( $vscf_atts ) {
 	$form_class = 'vscf-shortcode'.$custom_class.'';
 
 	// processing form
-	if ( ( $_SERVER['REQUEST_METHOD'] == 'POST' ) && isset( $_POST['vscf_send_'.$rand_suffix.''] ) ) {
+	if ( isset( $_SERVER['REQUEST_METHOD'] ) && ( $_SERVER['REQUEST_METHOD'] == 'POST' ) && isset( $_POST['vscf_send_'.$rand_suffix.''] ) ) {
 		// validate form nonce
 		$value_nonce = sanitize_text_field( $_POST['vscf_nonce'] );
 		if ( ! wp_verify_nonce( $value_nonce, 'vscf_nonce_action' ) ) {
@@ -113,7 +113,7 @@ function vscf_widget_shortcode( $vscf_atts ) {
 	$form_class = 'vscf-widget'.$custom_class.'';
 
 	// processing form
-	if ( ( $_SERVER['REQUEST_METHOD'] == 'POST' ) && isset( $_POST['vscf_widget_send_'.$rand_suffix.''] ) ) {
+	if ( isset( $_SERVER['REQUEST_METHOD'] ) && ( $_SERVER['REQUEST_METHOD'] == 'POST' ) && isset( $_POST['vscf_widget_send_'.$rand_suffix.''] ) ) {
 		// validate form nonce
 		$value_nonce = sanitize_text_field( $_POST['vscf_widget_nonce'] );
 		if ( ! wp_verify_nonce( $value_nonce, 'vscf_nonce_action' ) ) {

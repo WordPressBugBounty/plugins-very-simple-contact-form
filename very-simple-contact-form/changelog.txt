@@ -1,5 +1,8 @@
 == Changelog VS Contact Form ==
 
+= Version 17.2 =
+* Minor changes in code
+
 = Version 17.1 =
 * Fix: textarea
 
