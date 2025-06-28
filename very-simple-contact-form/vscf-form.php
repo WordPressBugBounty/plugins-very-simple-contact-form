@@ -57,7 +57,7 @@ $email_form = '<form name="vscf_'.$rand_suffix.'" id="vscf" class="'.esc_attr( $
 		<div class="form-group vscf-privacy-group">
 			<input type="hidden" name="vscf_privacy_'.$rand_suffix.'" id="vscf_privacy_hidden" value="no" />
 			<input type="checkbox" name="vscf_privacy_'.$rand_suffix.'" id="vscf_privacy" class="custom-control-input" value="yes" '.checked( esc_attr( $form_data['form_privacy'] ), "yes", false ).' aria-required="true" />
-			<label for="vscf_privacy">'.esc_html( $privacy_label ).'</label>
+			<label for="vscf_privacy">'.wp_kses_post( $privacy_label ).'</label>
 			'.( isset( $error_class['form_privacy'] ) ? '<span class="vscf-error">'.esc_html( $error_privacy_label ).'</span>' : '' ).'
 		</div>
 	' : '' ).'

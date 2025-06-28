@@ -1,5 +1,10 @@
 == Changelog VS Contact Form ==
 
+= Version 17.3 =
+* Privacy form label now accepts HTML markup
+* Now you can, for example, include a link to your privacy policy
+* Removed wrong header from main plugin file
+
 = Version 17.2 =
 * Minor changes in code
 

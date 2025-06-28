@@ -106,7 +106,7 @@ function vscf_admin_init() {
 	register_setting( 'vscf-label-options', 'vscf-setting-9', array( 'sanitize_callback' => 'sanitize_text_field' ) );
 
 	add_settings_field( 'vscf-field-18', esc_html__( 'Privacy', 'very-simple-contact-form' ), 'vscf_field_callback_18', 'vscf-label', 'vscf-label-section' );
-	register_setting( 'vscf-label-options', 'vscf-setting-18', array( 'sanitize_callback' => 'sanitize_text_field' ) );
+	register_setting( 'vscf-label-options', 'vscf-setting-18', array( 'sanitize_callback' => 'wp_kses_post' ) );
 
 	add_settings_field( 'vscf-field-10', esc_html__( 'Submit', 'very-simple-contact-form' ), 'vscf_field_callback_10', 'vscf-label', 'vscf-label-section' );
 	register_setting( 'vscf-label-options', 'vscf-setting-10', array( 'sanitize_callback' => 'sanitize_text_field' ) );
@@ -414,7 +414,8 @@ function vscf_field_callback_18() {
 	$placeholder = __( 'I consent to having this website collect my personal data via this form.', 'very-simple-contact-form' );
 	$value = get_option( 'vscf-setting-18' );
 	?>
-	<input type="text" size="40" name="vscf-setting-18" placeholder="<?php echo esc_attr( $placeholder ); ?>" value="<?php echo esc_attr( $value ); ?>" />
+	<textarea name="vscf-setting-18" rows="5" cols="50" maxlength="500" style="min-width:50%;" placeholder="<?php echo esc_attr( $placeholder ); ?>"><?php echo wp_kses_post( $value ); ?></textarea>
+	<p><?php esc_html_e( 'This field accepts HTML markup.', 'very-simple-contact-form' ); ?></p>
 	<?php
 }
 
@@ -512,6 +513,7 @@ function vscf_field_callback_16() {
 	?>
 	<textarea name="vscf-setting-16" rows="8" cols="50" maxlength="2000" style="min-width:50%;" placeholder="<?php echo esc_attr( $placeholder ); ?>"><?php echo wp_kses_post( $value ); ?></textarea>
 	<p><?php esc_html_e( 'Displayed when sending succeeds.', 'very-simple-contact-form' ); ?></p>
+	<p><?php esc_html_e( 'This field accepts HTML markup.', 'very-simple-contact-form' ); ?></p>
 	<?php
 }
 

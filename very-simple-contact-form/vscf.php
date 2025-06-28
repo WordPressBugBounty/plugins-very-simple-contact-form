@@ -2,14 +2,13 @@
 /*
  * Plugin Name: VS Contact Form
  * Description: With this lightweight plugin you can create a contact form.
- * Version: 17.2
+ * Version: 17.3
  * Author: Guido
  * Author URI: https://www.guido.site
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Requires PHP: 7.4
  * Requires at least: 6.0
- * Requires CP: 2.0
  * Text Domain: very-simple-contact-form
  */
 
