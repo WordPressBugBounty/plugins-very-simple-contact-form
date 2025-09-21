@@ -2,7 +2,7 @@
 /*
  * Plugin Name: VS Contact Form
  * Description: With this lightweight plugin you can create a contact form.
- * Version: 17.3
+ * Version: 17.4
  * Author: Guido
  * Author URI: https://www.guido.site
  * License: GPLv3

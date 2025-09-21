@@ -1,5 +1,8 @@
 == Changelog VS Contact Form ==
 
+= Version 17.4 =
+* Added date to form submission
+
 = Version 17.3 =
 * Privacy form label now accepts HTML markup
 * Now you can, for example, include a link to your privacy policy

@@ -61,7 +61,7 @@ $email_address_admin = get_option( 'admin_email' );
 // from email header
 $from_header = vscf_from_header();
 
-// set time for time trap
+// set time for time trap and form submission
 $vscf_time_field = time();
 
 // suffix for form and fields

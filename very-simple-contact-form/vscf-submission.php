@@ -107,11 +107,13 @@ if ( $error == false ) {
 		} else {
 			$ip_address = "\r\n\r\n".sprintf( __( 'IP: %s', 'very-simple-contact-form' ), vscf_ip_address() );
 		}
+		// include date in form submission content
+		$submission_date = "\r\n\r\n".sprintf( __( 'Date: %s', 'very-simple-contact-form' ), wp_date( get_option( 'date_format' ), $vscf_time_field ) );
 		// save form submission in database
 		if ( $list_submissions == 'yes' ) {
 			$vscf_post_information = array(
 				'post_title' => wp_strip_all_tags( $subject ),
-				'post_content' => $form_data['form_name']."\r\n\r\n".$form_data['form_email']."\r\n\r\n".$subject_from_sender.$form_data['form_message'].$privacy_consent.$ip_address,
+				'post_content' => $form_data['form_name']."\r\n\r\n".$form_data['form_email']."\r\n\r\n".$subject_from_sender.$form_data['form_message'].$privacy_consent.$ip_address.$submission_date,
 				'post_type' => 'submission',
 				'post_status' => 'pending',
 				'meta_input' => array( "name_sub" => $form_data['form_name'], "email_sub" => $form_data['form_email'] )
@@ -119,7 +121,7 @@ if ( $error == false ) {
 			$post_id = wp_insert_post( $vscf_post_information );
 		}
 		// email
-		$content = $form_data['form_name']."\r\n\r\n".$form_data['form_email']."\r\n\r\n".$subject_from_sender.$form_data['form_message'].$privacy_consent.$ip_address;
+		$content = $form_data['form_name']."\r\n\r\n".$form_data['form_email']."\r\n\r\n".$subject_from_sender.$form_data['form_message'].$privacy_consent.$ip_address.$submission_date;
 		$headers = "Content-Type: text/plain; charset=UTF-8" . "\r\n";
 		$headers .= "From: ".$form_data['form_name']." <".$from.">" . "\r\n";
 		$headers .= "Reply-To: <".$form_data['form_email'].">" . "\r\n";

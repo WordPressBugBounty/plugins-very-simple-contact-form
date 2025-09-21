@@ -1,7 +1,7 @@
 === VS Contact Form ===
 Contributors: Guido07111975
-Version: 17.3
-Stable tag: 17.3
+Version: 17.4
+Stable tag: 17.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Requires PHP: 7.4
@@ -219,6 +219,9 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 
 == Changelog ==
+= Version 17.4 =
+* Added date to form submission
+
 = Version 17.3 =
 * Privacy form label now accepts HTML markup
 * Now you can, for example, include a link to your privacy policy
@@ -256,11 +259,6 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 = Version 16.5 =
 * Minor changes in code
-
-= Version 16.4 =
-* New: choose which form submissions to ignore
-* Ignore form submissions with banned words
-* Ignore form submissions if Message field does not accept links or email addresses
 
 For all versions please check file changelog.
 
