@@ -31,7 +31,7 @@ $vscf_atts = shortcode_atts( array(
 	'error_banned_words' => '',
 	'error_privacy' => '',
 	'thank_you_message' => '',
-	'auto_reply_message' => ''
+	'auto_reply_message' => '',
 ), $vscf_atts );
 
 // initialize form variables
@@ -44,7 +44,7 @@ $form_data = array(
 	'form_privacy' => '',
 	'form_first_random' => '',
 	'form_second_random' => '',
-	'form_time' => ''
+	'form_time' => '',
 );
 $error = false;
 $mail_sends = false;
@@ -62,7 +62,7 @@ $email_address_admin = get_option( 'admin_email' );
 $from_header = vscf_from_header();
 
 // set time for time trap and form submission
-$vscf_time_field = time();
+$time_field = time();
 
 // suffix for form and fields
 $rand_suffix = get_the_ID();
@@ -70,16 +70,16 @@ $rand_suffix = get_the_ID();
 // sum variables used by form and validation
 $transient_name = vscf_transient_name();
 if ( get_transient( $transient_name ) === false ) {
-	$vscf_rand_one = 0;
-	$vscf_rand_two = 0;
+	$random_number_one = 0;
+	$random_number_two = 0;
 } else {
 	$transient_array = get_transient( $transient_name );
-	$vscf_rand_one = $transient_array['rand_one'];
-	$vscf_rand_two = $transient_array['rand_two'];
+	$random_number_one = $transient_array['rand_one'];
+	$random_number_two = $transient_array['rand_two'];
 }
 
 // hidden sum field
-$vscf_hidden_sum = wp_hash( $vscf_rand_one + $vscf_rand_two );
+$hidden_sum = wp_hash( $random_number_one + $random_number_two );
 
 // get attributes
 $email_address_attribute = $vscf_atts['email_to'];
@@ -243,7 +243,7 @@ if ( ! empty( $vscf_atts['placeholder_subject'] ) ) {
 
 // sum placeholder
 if ( $hide_labels == 'yes' ) {
-	$sum_placeholder = $vscf_rand_one.' + '.$vscf_rand_two.' =';
+	$sum_placeholder = $random_number_one.' + '.$random_number_two.' =';
 } else {
 	$sum_placeholder = '';
 }
@@ -414,14 +414,4 @@ if ( $form_anchor == 'yes' ) {
 } else {
 	$anchor_begin = '';
 	$anchor_end = '';
-}
-
-// disable form in block editor
-$disabled = vscf_disable_form();
-if ( $disabled === true ) {
-	$fieldset_start = '<fieldset disabled>';
-	$fieldset_end = '</fieldset>';
-} else {
-	$fieldset_start = '';
-	$fieldset_end = '';
 }

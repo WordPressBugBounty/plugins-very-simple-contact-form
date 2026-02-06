@@ -67,7 +67,7 @@ if ( $error == false ) {
 		} else {
 			$reply_to = $email_address_admin;
 		}
-		// subject for email
+		// subject for email and form submission
 		if ( ! empty( $subject_attribute ) ) {
 			$subject = $subject_attribute;
 		} elseif ( ! empty( $subject_settings_page ) ) {
@@ -93,10 +93,9 @@ if ( $error == false ) {
 		} else {
 			$subject_from_sender = '';
 		}
-		// auto-reply message
-		$message_auto_reply = htmlspecialchars_decode( $auto_reply_message, ENT_QUOTES );
 		// show or hide privacy consent
 		if ( $disable_privacy != 'yes' ) {
+			/* translators: %s: privacy consent text. */
 			$privacy_consent = "\r\n\r\n".sprintf( __( 'Privacy consent: %s', 'very-simple-contact-form' ), $privacy_label );
 		} else {
 			$privacy_consent = '';
@@ -105,46 +104,50 @@ if ( $error == false ) {
 		if ( $disable_ip_address == 'yes' ) {
 			$ip_address = '';
 		} else {
+			/* translators: %s: IP-address from sender. */
 			$ip_address = "\r\n\r\n".sprintf( __( 'IP: %s', 'very-simple-contact-form' ), vscf_ip_address() );
 		}
 		// include date in form submission content
-		$submission_date = "\r\n\r\n".sprintf( __( 'Date: %s', 'very-simple-contact-form' ), wp_date( get_option( 'date_format' ), $vscf_time_field ) );
+		/* translators: %s: form submission date. */
+		$submission_date = "\r\n\r\n".sprintf( __( 'Date: %s', 'very-simple-contact-form' ), wp_date( get_option( 'date_format' ), $time_field ) );
 		// save form submission in database
 		if ( $list_submissions == 'yes' ) {
-			$vscf_post_information = array(
+			$content_for_post = array(
 				'post_title' => wp_strip_all_tags( $subject ),
 				'post_content' => $form_data['form_name']."\r\n\r\n".$form_data['form_email']."\r\n\r\n".$subject_from_sender.$form_data['form_message'].$privacy_consent.$ip_address.$submission_date,
 				'post_type' => 'submission',
 				'post_status' => 'pending',
-				'meta_input' => array( "name_sub" => $form_data['form_name'], "email_sub" => $form_data['form_email'] )
+				'meta_input' => array( "name_sub" => $form_data['form_name'], "email_sub" => $form_data['form_email'] ),
 			);
-			$post_id = wp_insert_post( $vscf_post_information );
+			wp_insert_post( $content_for_post );
 		}
 		// email
-		$content = $form_data['form_name']."\r\n\r\n".$form_data['form_email']."\r\n\r\n".$subject_from_sender.$form_data['form_message'].$privacy_consent.$ip_address.$submission_date;
-		$headers = "Content-Type: text/plain; charset=UTF-8" . "\r\n";
-		$headers .= "From: ".$form_data['form_name']." <".$from.">" . "\r\n";
-		$headers .= "Reply-To: <".$form_data['form_email'].">" . "\r\n";
-		$auto_reply_content = $message_auto_reply."\r\n\r\n".$form_data['form_name']."\r\n\r\n".$form_data['form_email']."\r\n\r\n".$subject_from_sender.$form_data['form_message'];
-		$auto_reply_headers = "Content-Type: text/plain; charset=UTF-8" . "\r\n";
-		$auto_reply_headers .= "From: ".$blog_name." <".$from.">" . "\r\n";
-		$auto_reply_headers .= "Reply-To: <".$reply_to.">" . "\r\n";
 		if ( $disable_mail == 'yes' ) {
 			$mail_sends = true;
 		} else {
+			$content = $form_data['form_name']."\r\n\r\n".$form_data['form_email']."\r\n\r\n".$subject_from_sender.$form_data['form_message'].$privacy_consent.$ip_address.$submission_date;
+			$headers = "Content-Type: text/plain; charset=UTF-8" . "\r\n";
+			$headers .= "From: ".$form_data['form_name']." <".$from.">" . "\r\n";
+			$headers .= "Reply-To: <".$form_data['form_email'].">" . "\r\n";
 			if ( wp_mail( $to, wp_strip_all_tags( $subject ), $content, $headers ) ) {
 				$mail_sends = true;
 			} else {
 				$mail_fails = true;
 			}
 		}
+		// auto-reply email
 		if ( $auto_reply_mail == 'yes' ) {
+			$auto_reply_content = $auto_reply_message."\r\n\r\n".$form_data['form_name']."\r\n\r\n".$form_data['form_email']."\r\n\r\n".$subject_from_sender.$form_data['form_message'];
+			$auto_reply_headers = "Content-Type: text/plain; charset=UTF-8" . "\r\n";
+			$auto_reply_headers .= "From: ".$blog_name." <".$from.">" . "\r\n";
+			$auto_reply_headers .= "Reply-To: <".$reply_to.">" . "\r\n";
 			if ( wp_mail( $form_data['form_email'], wp_strip_all_tags( $subject_auto_reply ), $auto_reply_content, $auto_reply_headers ) ) {
 				$mail_sends = true;
 			} else {
 				$mail_fails = true;
 			}
 		}
+		// email success or fail
 		if ( $mail_fails == true ) {
 			$fail = true;
 		} elseif ( $mail_sends == true ) {

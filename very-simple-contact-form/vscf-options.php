@@ -149,7 +149,7 @@ function vscf_admin_init() {
 	register_setting( 'vscf-message-options', 'vscf-setting-16', array( 'sanitize_callback' => 'wp_kses_post' ) );
 
 	add_settings_field( 'vscf-field-17', esc_html__( 'Email', 'very-simple-contact-form' ), 'vscf_field_callback_17', 'vscf-message', 'vscf-message-section' );
-	register_setting( 'vscf-message-options', 'vscf-setting-17', array( 'sanitize_callback' => 'wp_kses_post' ) );
+	register_setting( 'vscf-message-options', 'vscf-setting-17', array( 'sanitize_callback' => 'sanitize_textarea_field' ) );
 }
 add_action( 'admin_init', 'vscf_admin_init' );
 
@@ -239,7 +239,7 @@ function vscf_field_callback_32() {
 	$value = get_option( 'vscf-setting-32' );
 	?>
 	<input type="number" min="10" size="40" name="vscf-setting-32" placeholder="<?php echo esc_attr( $placeholder ); ?>" value="<?php echo esc_attr( $value ); ?>" />
-	<?php printf( esc_html__( 'Default value is %s.', 'very-simple-contact-form' ), '100' ); ?>
+	<?php /* translators: %s: default value for this variable. */ printf( esc_html__( 'Default value is %s.', 'very-simple-contact-form' ), '100' ); ?>
 	<p><?php esc_html_e( 'Limit input by using the maxlength attribute.', 'very-simple-contact-form' ); ?></p>
 	<?php
 }
@@ -249,7 +249,7 @@ function vscf_field_callback_33() {
 	$value = get_option( 'vscf-setting-33' );
 	?>
 	<input type="number" min="10" size="40" name="vscf-setting-33" placeholder="<?php echo esc_attr( $placeholder ); ?>" value="<?php echo esc_attr( $value ); ?>" />
-	<?php printf( esc_html__( 'Default value is %s.', 'very-simple-contact-form' ), '10000' ); ?>
+	<?php /* translators: %s: default value for this variable. */ printf( esc_html__( 'Default value is %s.', 'very-simple-contact-form' ), '10000' ); ?>
 	<p><?php esc_html_e( 'Limit input by using the maxlength attribute.', 'very-simple-contact-form' ); ?></p>
 	<?php
 }
@@ -306,7 +306,7 @@ function vscf_field_callback_25() {
 		<option value="disallow" <?php echo ( $value == 'disallow' ) ? 'selected' : ''; ?>><?php esc_html_e( 'Disallow', 'very-simple-contact-form' ); ?></option>
 		<option value="one" <?php echo ( $value == 'one' ) ? 'selected' : ''; ?>><?php esc_html_e( 'One', 'very-simple-contact-form' ); ?></option>
 	</select>
-	<?php printf( esc_html__( 'Default value is %s.', 'very-simple-contact-form' ), esc_html__( 'Allow', 'very-simple-contact-form' ) ); ?>
+	<?php /* translators: %s: default value for this variable. */ printf( esc_html__( 'Default value is %s.', 'very-simple-contact-form' ), esc_html__( 'Allow', 'very-simple-contact-form' ) ); ?>
 	<p><?php esc_html_e( 'Allow or disallow links in Message field.', 'very-simple-contact-form' ); ?></p>
 	<?php
 }
@@ -327,7 +327,7 @@ function vscf_field_callback_36() {
 		<option value="allow" <?php echo ( $value == 'allow' ) ? 'selected' : ''; ?>><?php esc_html_e( 'Allow', 'very-simple-contact-form' ); ?></option>
 		<option value="disallow" <?php echo ( $value == 'disallow' ) ? 'selected' : ''; ?>><?php esc_html_e( 'Disallow', 'very-simple-contact-form' ); ?></option>
 	</select>
-	<?php printf( esc_html__( 'Default value is %s.', 'very-simple-contact-form' ), esc_html__( 'Allow', 'very-simple-contact-form' ) ); ?>
+	<?php /* translators: %s: default value for this variable. */ printf( esc_html__( 'Default value is %s.', 'very-simple-contact-form' ), esc_html__( 'Allow', 'very-simple-contact-form' ) ); ?>
 	<p><?php esc_html_e( 'Allow or disallow email addresses in Message field.', 'very-simple-contact-form' ); ?></p>
 	<?php
 }
@@ -346,7 +346,7 @@ function vscf_field_callback_40() {
 	$value = get_option( 'vscf-setting-40' );
 	?>
 	<input type="number" min="5" max="60" size="10" name="vscf-setting-40" placeholder="<?php echo esc_attr( $placeholder ); ?>" value="<?php echo esc_attr( $value ); ?>" />
-	<?php printf( esc_html__( 'Default value is %s.', 'very-simple-contact-form' ), '5' ); ?>
+	<?php /* translators: %s: default value for this variable. */ printf( esc_html__( 'Default value is %s.', 'very-simple-contact-form' ), '5' ); ?>
 	<p><?php esc_html_e( 'Minimum time in seconds between page load and form submission.', 'very-simple-contact-form' ); ?></p>
 	<?php
 }
@@ -455,7 +455,7 @@ function vscf_field_callback_26() {
 	$placeholder = __( 'Please enter the correct result', 'very-simple-contact-form' );
 	$value = get_option( 'vscf-setting-26' );
 	?>
-	<input type="text" size="40" name="vscf-setting-26" placeholder="<?php echo esc_attr( $placeholder ); ?>' value="<?php echo esc_attr( $value ); ?>' />
+	<input type="text" size="40" name="vscf-setting-26" placeholder="<?php echo esc_attr( $placeholder ); ?>" value="<?php echo esc_attr( $value ); ?>" />
 	<?php
 }
 
@@ -511,7 +511,7 @@ function vscf_field_callback_16() {
 	$placeholder = __( 'Thank you! You will receive a response as soon as possible.', 'very-simple-contact-form' );
 	$value = get_option( 'vscf-setting-16' );
 	?>
-	<textarea name="vscf-setting-16" rows="8" cols="50" maxlength="2000" style="min-width:50%;" placeholder="<?php echo esc_attr( $placeholder ); ?>"><?php echo wp_kses_post( $value ); ?></textarea>
+	<textarea name="vscf-setting-16" rows="5" cols="50" maxlength="2000" style="min-width:50%;" placeholder="<?php echo esc_attr( $placeholder ); ?>"><?php echo wp_kses_post( $value ); ?></textarea>
 	<p><?php esc_html_e( 'Displayed when sending succeeds.', 'very-simple-contact-form' ); ?></p>
 	<p><?php esc_html_e( 'This field accepts HTML markup.', 'very-simple-contact-form' ); ?></p>
 	<?php
@@ -521,7 +521,7 @@ function vscf_field_callback_17() {
 	$placeholder = __( 'Thank you! You will receive a response as soon as possible.', 'very-simple-contact-form' );
 	$value = get_option( 'vscf-setting-17' );
 	?>
-	<textarea name="vscf-setting-17" rows="8" cols="50" maxlength="2000" style="min-width:50%;" placeholder="<?php echo esc_attr( $placeholder ); ?>"><?php echo wp_kses_post( $value ); ?></textarea>
+	<textarea name="vscf-setting-17" rows="5" cols="50" maxlength="2000" style="min-width:50%;" placeholder="<?php echo esc_attr( $placeholder ); ?>"><?php echo esc_textarea( $value ); ?></textarea>
 	<p><?php esc_html_e( 'Displayed in the auto-reply email to sender.', 'very-simple-contact-form' ); ?></p>
 	<?php
 }

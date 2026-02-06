@@ -4,8 +4,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// set input value for subject and privacy field
+if ( ( $disable_subject != 'yes' ) && isset( $_POST['vscf_subject_'.$rand_suffix.''] ) ) {
+	$subject_value = sanitize_text_field( $_POST['vscf_subject_'.$rand_suffix.''] );
+} else {
+	$subject_value = '';
+}
+if ( ( $disable_privacy != 'yes' ) && isset( $_POST['vscf_privacy_'.$rand_suffix.''] ) ) {
+	$privacy_value = sanitize_key( $_POST['vscf_privacy_'.$rand_suffix.''] );
+} else {
+	$privacy_value = '';
+}
+
+// sanitize input
+$post_data = array(
+	'form_name' => sanitize_text_field( $_POST['vscf_name_'.$rand_suffix.''] ),
+	'form_email' => sanitize_email( $_POST['vscf_email_'.$rand_suffix.''] ),
+	'form_subject' => $subject_value,
+	'form_sum' => sanitize_text_field( $_POST['vscf_sum_'.$rand_suffix.''] ),
+	'form_message' => sanitize_textarea_field( $_POST['vscf_message_'.$rand_suffix.''] ),
+	'form_privacy' => $privacy_value,
+	'form_first_random' => sanitize_text_field( $_POST['vscf_first_random_'.$rand_suffix.''] ),
+	'form_second_random' => sanitize_text_field( $_POST['vscf_second_random_'.$rand_suffix.''] ),
+	'form_time' => sanitize_text_field( $_POST['vscf_time_'.$rand_suffix.''] ),
+);
+
 // validate name field
-$value_name = stripslashes( $post_data['form_name'] );
+$value_name = $post_data['form_name'];
 if ( ! empty( $banned_words_list ) ) {
 	$words = explode( ',', $banned_words_list );
 	foreach ( $words as $word ) {
@@ -46,7 +71,7 @@ $form_data['form_email'] = $value_email;
 
 // validate subject field
 if ( $disable_subject != 'yes' ) {
-	$value_subject = stripslashes( $post_data['form_subject'] );
+	$value_subject = $post_data['form_subject'];
 	if ( ! empty( $banned_words_list ) ) {
 		$words = explode( ',', $banned_words_list );
 		foreach ( $words as $word ) {
@@ -73,14 +98,14 @@ if ( get_transient( $transient_name ) === false) {
 } else {
 	if ( $disable_sum == 'yes' ) {
 		$value_sum = $post_data['form_sum'];
-		$value_transient = wp_hash( $vscf_rand_one + $vscf_rand_two );
+		$value_transient = wp_hash( $random_number_one + $random_number_two );
 		if ( $value_sum != $value_transient ) {
 			$error_class['form_sum_hidden'] = true;
 			$error = true;
 		}
 	} else {
 		$value_sum = $post_data['form_sum'];
-		$value_transient = $vscf_rand_one + $vscf_rand_two;
+		$value_transient = $random_number_one + $random_number_two;
 		if ( $value_sum != $value_transient ) {
 			$error_class['form_sum'] = true;
 			$error = true;
@@ -90,7 +115,7 @@ if ( get_transient( $transient_name ) === false) {
 }
 
 // validate message field
-$value_message = stripslashes( $post_data['form_message'] );
+$value_message = $post_data['form_message'];
 $value_message_clean = preg_replace( '/\s+/u', ' ', $value_message );
 $message_array = explode( ' ', $value_message_clean );
 if ( ! empty( $banned_words_list ) ) {

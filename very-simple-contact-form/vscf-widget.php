@@ -16,7 +16,7 @@ class vscf_widget extends WP_Widget {
 		$instance = wp_parse_args( $instance, array(
 			'vscf_title' => '',
 			'vscf_text' => '',
-			'vscf_attributes' => ''
+			'vscf_attributes' => '',
 		) );
 		$vscf_title = ! empty( $instance['vscf_title'] ) ? $instance['vscf_title'] : __( 'VS Contact Form', 'very-simple-contact-form' );
 		$vscf_text = $instance['vscf_text'];
@@ -28,7 +28,7 @@ class vscf_widget extends WP_Widget {
 		<p><label for="<?php echo esc_attr( $this->get_field_id( 'vscf_text' ) ); ?>"><?php esc_html_e( 'Text above form', 'very-simple-contact-form' ); ?>:</label>
 		<textarea class="widefat monospace" rows="6" cols="20" id="<?php echo esc_attr( $this->get_field_id( 'vscf_text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'vscf_text' ) ); ?>"><?php echo wp_kses_post( $vscf_text ); ?></textarea></p>
 		<p><label for="<?php echo esc_attr( $this->get_field_id( 'vscf_attributes' ) ); ?>"><?php esc_html_e( 'Attributes', 'very-simple-contact-form' ); ?>:</label>
-		<textarea class="widefat monospace" rows="3" cols="20" id="<?php echo esc_attr( $this->get_field_id( 'vscf_attributes' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'vscf_attributes' ) ); ?>" placeholder="<?php esc_attr_e( 'Example', 'very-simple-contact-form' ); ?>: email_to=&quot;info@example.com&quot;"><?php echo wp_kses_post( $vscf_attributes ); ?></textarea></p>
+		<textarea class="widefat monospace" rows="3" cols="20" id="<?php echo esc_attr( $this->get_field_id( 'vscf_attributes' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'vscf_attributes' ) ); ?>" placeholder="<?php esc_attr_e( 'Example', 'very-simple-contact-form' ); ?>: email_to=&quot;info@example.com&quot;"><?php echo esc_textarea( $vscf_attributes ); ?></textarea></p>
 		<p><?php esc_html_e( 'For info and available attributes', 'very-simple-contact-form' ); ?> <?php echo '<a href="https://wordpress.org/plugins/very-simple-contact-form" rel="noopener noreferrer" target="_blank">'.esc_html__( 'click here', 'very-simple-contact-form' ).'</a>'; ?>.</p>
 		<?php
 	}
@@ -45,12 +45,12 @@ class vscf_widget extends WP_Widget {
 
 	// display widget with form in frontend
 	function widget( $args, $instance ) {
-		echo $args['before_widget'];
+		echo wp_kses_post( $args['before_widget'] );
 		if ( ! empty( $instance['vscf_title'] ) ) {
-			echo $args['before_title'] . apply_filters( 'widget_title', esc_html( $instance['vscf_title'] ) ). $args['after_title'];
+			echo wp_kses_post( $args['before_title'] ) . esc_html( apply_filters( 'widget_title', $instance['vscf_title'] ) ) . wp_kses_post( $args['after_title'] );
 		}
 		if ( ! empty( $instance['vscf_text'] ) ) {
-			echo '<div class="vscf-widget-text">'.wp_kses_post( wpautop( $instance['vscf_text'] ).'</div>' );
+			echo '<div class="vscf-widget-text">'.wp_kses_post( wpautop( $instance['vscf_text'] ) ).'</div>';
 		}
 		$content = '[contact-widget';
 		if ( ! empty( $instance['vscf_attributes'] ) ) {
@@ -58,6 +58,6 @@ class vscf_widget extends WP_Widget {
 		}
 		$content .= ']';
 		echo do_shortcode( $content );
-		echo $args['after_widget'];
+		echo wp_kses_post( $args['after_widget'] );
 	}
 }

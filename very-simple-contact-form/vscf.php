@@ -2,7 +2,7 @@
 /*
  * Plugin Name: VS Contact Form
  * Description: With this lightweight plugin you can create a contact form.
- * Version: 17.4
+ * Version: 18.5
  * Author: Guido
  * Author URI: https://www.guido.site
  * License: GPLv3
@@ -17,16 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// enqueue plugin scripts
-function vscf_scripts() {
-	wp_enqueue_style( 'vscf-style', plugins_url( '/css/vscf-style.min.css',__FILE__ ) );
-	$anchor = get_option( 'vscf-setting-21' );
-	if ( $anchor == 'yes' ) {
-		wp_enqueue_script( 'vscf-anchor-script', plugins_url( '/js/vscf-anchor.js' , __FILE__ ), array(), null, true );
-	}
-	wp_enqueue_script( 'vscf-reset-script', plugins_url( '/js/vscf-reset.js' , __FILE__ ), array(), null, true );
+// enqueue scripts
+function vscf_enqueue_scripts() {
+	wp_enqueue_style( 'vscf-styles', plugins_url( '/css/vscf-style.min.css',__FILE__ ), array(), false );
+	wp_enqueue_script( 'vscf-scripts', plugins_url( '/js/vscf-scripts.js' , __FILE__ ), array(), false, true );
 }
-add_action( 'wp_enqueue_scripts', 'vscf_scripts' );
+add_action( 'wp_enqueue_scripts', 'vscf_enqueue_scripts' );
 
 // register widget
 function vscf_register_widget() {
@@ -39,7 +35,7 @@ $list_submissions = get_option( 'vscf-setting-2' );
 if ( $list_submissions == 'yes' ) {
 	// create submission post type
 	function vscf_custom_post_type() {
-		$vscf_args = array(
+		$custom_post_type_args = array(
 			'labels' => array( 'name' => __( 'Submissions', 'very-simple-contact-form' ) ),
 			'menu_icon' => 'dashicons-email',
 			'public' => false,
@@ -49,9 +45,9 @@ if ( $list_submissions == 'yes' ) {
 			'capability_type' => 'post',
 			'capabilities' => array( 'create_posts' => 'do_not_allow' ),
 			'map_meta_cap' => true,
- 			'supports' => array( 'title', 'editor' )
+ 			'supports' => array( 'title', 'editor' ),
 		);
-		register_post_type( 'submission', $vscf_args );
+		register_post_type( 'submission', $custom_post_type_args );
 	}
 	add_action( 'init', 'vscf_custom_post_type' );
 
@@ -92,7 +88,7 @@ if ( $list_submissions == 'yes' ) {
 			if ( isset( $vars['orderby'] ) && 'name_sub' == $vars['orderby'] ) {
 				$vars = array_merge( $vars, array(
 					'meta_key' => 'name_sub',
-					'orderby' => 'meta_value'
+					'orderby' => 'meta_value',
 				) );
 			}
 		}
@@ -105,7 +101,7 @@ if ( $list_submissions == 'yes' ) {
 			if ( isset( $vars['orderby'] ) && 'email_sub' == $vars['orderby'] ) {
 				$vars = array_merge( $vars, array(
 					'meta_key' => 'email_sub',
-					'orderby' => 'meta_value'
+					'orderby' => 'meta_value',
 				) );
 			}
 		}
@@ -117,7 +113,7 @@ if ( $list_submissions == 'yes' ) {
 // get ip of user
 function vscf_ip_address() {
 	if ( isset( $_SERVER['REMOTE_ADDR'] ) ) {
-		$ip_address = $_SERVER['REMOTE_ADDR'];
+		$ip_address = $_SERVER['REMOTE_ADDR']; // phpcs:ignore
 	} else {
 		$ip_address = '';
 	}
@@ -158,6 +154,7 @@ function vscf_transient() {
 	$rand_two = random_int( 1, 9 );
 	if ( get_transient( $transient_name ) === false ) {
 		set_transient( $transient_name, array( 'rand_one' => $rand_one, 'rand_two' => $rand_two ), HOUR_IN_SECONDS );
+		delete_expired_transients();
 	}
 }
 add_action( 'init', 'vscf_transient' );
@@ -179,74 +176,36 @@ function vscf_from_header() {
 // redirect when sending succeeds
 function vscf_redirect_success() {
 	$page_url = vscf_page_url();
-	if ( strpos( $page_url, '?' ) == true ) {
-		$url_with_param = $page_url.'&vscf-sh=success';
-	} elseif ( substr( $page_url, -1 ) == '/' ) {
-		$url_with_param = $page_url.'?vscf-sh=success';
-	} else {
-		$url_with_param = $page_url.'/?vscf-sh=success';
-	}
-	return esc_url_raw( $url_with_param );
+	return esc_url_raw( add_query_arg( 'vscf-sh', 'success', $page_url ) );
 }
 
 function vscf_widget_redirect_success() {
 	$page_url = vscf_page_url();
-	if ( strpos( $page_url, '?' ) == true ) {
-		$url_with_param = $page_url. '&vscf-wi=success';
-	} elseif ( substr( $page_url, -1 ) == '/' ) {
-		$url_with_param = $page_url.'?vscf-wi=success';
-	} else {
-		$url_with_param = $page_url.'/?vscf-wi=success';
-	}
-	return esc_url_raw( $url_with_param );
+	return esc_url_raw( add_query_arg( 'vscf-wi', 'success', $page_url ) );
 }
 
 // redirect when sending fails
 function vscf_redirect_error() {
 	$page_url = vscf_page_url();
-	if ( strpos( $page_url, '?' ) == true ) {
-		$url_with_param = $page_url.'&vscf-sh=fail';
-	} elseif ( substr( $page_url, -1 ) == '/' ) {
-		$url_with_param = $page_url.'?vscf-sh=fail';
-	} else {
-		$url_with_param = $page_url.'/?vscf-sh=fail';
-	}
-	return esc_url_raw( $url_with_param );
+	return esc_url_raw( add_query_arg( 'vscf-sh', 'fail', $page_url ) );
 }
 
 function vscf_widget_redirect_error() {
 	$page_url = vscf_page_url();
-	if ( strpos( $page_url, '?' ) == true ) {
-		$url_with_param = $page_url.'&vscf-wi=fail';
-	} elseif ( substr( $page_url, -1 ) == '/' ) {
-		$url_with_param = $page_url.'?vscf-wi=fail';
-	} else {
-		$url_with_param = $page_url.'/?vscf-wi=fail';
-	}
-	return esc_url_raw( $url_with_param );
+	return esc_url_raw( add_query_arg( 'vscf-wi', 'fail', $page_url ) );
 }
 
 // add settings link
 function vscf_action_links( $links ) {
-	$settingslink = array( '<a href="'. admin_url( 'options-general.php?page=vscf' ) .'">'. __( 'Settings', 'very-simple-contact-form' ) .'</a>', );
+	$settingslink = array( '<a href="'. admin_url( 'options-general.php?page=vscf' ) .'">'. __( 'Settings', 'very-simple-contact-form' ) .'</a>' );
 	return array_merge( $links, $settingslink );
 }
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'vscf_action_links' );
 
-// disable form in block editor
-function vscf_disable_form() {
-	if ( defined( 'REST_REQUEST' ) && REST_REQUEST && isset( $_GET['context'] ) && ( 'edit' === $_GET['context'] ) ) {
-		$disable = true;
-	} else {
-		$disable = false;
-	}
-	return $disable;
-}
-
 // include files
 include 'vscf-options.php';
-if ( function_exists( 'register_block_type' ) ) {
-	include 'vscf-block.php';
+if ( function_exists( 'register_block_type' ) && ( get_bloginfo( 'version' ) >= '6.3' ) ) {
+	include 'block/vscf-block.php';
 }
 include 'vscf-widget.php';
 include 'vscf-shortcodes.php';

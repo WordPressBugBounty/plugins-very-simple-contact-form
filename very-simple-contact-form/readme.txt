@@ -1,13 +1,13 @@
 === VS Contact Form ===
 Contributors: Guido07111975
-Version: 17.4
-Stable tag: 17.4
+Version: 18.5
+Stable tag: 18.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Requires PHP: 7.4
 Requires at least: 6.0
-Tested up to: 6.8
-Tags: simple, contact, form, contact form, email
+Tested up to: 6.9
+Tags: contact, form, contact form, email, classicpress
 
 
 With this lightweight plugin you can create a contact form.
@@ -17,30 +17,33 @@ With this lightweight plugin you can create a contact form.
 = About =
 With this lightweight plugin you can create a contact form.
 
-To display your form you can use a block, a shortcode or a widget.
+Main features of the plugin:
 
-Form contains fields for Name, Email, Subject and Message. Also included are a sum field (to avoid abuse) and a privacy consent checkbox.
-
-You can customize your form via the settings page or with attributes.
-
-It's also possible to display form submissions in your dashboard.
+* Free and lightweight
+* Support for Block Editor and Classic Editor
+* Display your form with block, shortcode or widget
+* Fields for Name, Email, Subject and Message
+* Privacy consent checkbox
+* Customize your form via the settings page or with attributes
+* List form submissions in your dashboard
+* Built-in anti-spam features
+* Documentation at WP plugin page
+* Active support from developer at WP forum
 
 = How to use =
-After installation add the VS Contact Form block or the shortcode `[contact]` to a page to display your form.
+After installation go to the editor and add the VS Contact Form block or the shortcode `[contact]` to a page. This will display your form.
 
 Or go to Appearance > Widgets and use the VS Contact Form widget.
 
-You can customize your form via the settings page or with attributes.
+Customize your form via the settings page or with attributes.
 
 = Settings page =
-You can customize your form via the settings page. This page is located at Settings > VS Contact Form.
-
-Settings and labels can be overridden when using the relevant attributes below.
-
-This can be useful when having multiple contact forms on your website.
+The settings page is located at Settings > VS Contact Form.
 
 = Attributes =
-You can also customize your form by adding attributes to the block, the shortcode or the widget. Attributes will override the settings page.
+Settings and labels can be overridden by adding attributes to the block, shortcode, or widget.
+
+This can be useful when having multiple contact forms on your website.
 
 Misc:
 
@@ -92,7 +95,7 @@ When using the block or the widget, don't add the main shortcode tag or the brac
 Example: `email_to="your-email-address" subject="your subject" label_submit="your label"`
 
 = Display form submissions in dashboard =
-Via the settings page you can activate form submissions being displayed in your dashboard.
+Via the settings page you can activate form submissions being stored and displayed in your dashboard.
 
 After activation go to menu item "Submissions". Your form submissions will be listed here.
 
@@ -104,7 +107,7 @@ By default, WordPress uses the PHP `mail()` function for sending emails. But whe
 You must install an additional plugin for this, such as [WP mail SMTP](https://wordpress.org/plugins/wp-mail-smtp/).
 
 = Cache =
-If you're using a caching plugin and want to avoid conflicts with the contact form, I recommend excluding your contact page from caching. This can be done via the settings page of most caching plugins.
+If you're using a caching plugin and want to avoid conflicts with the contact form, exclude your contact page from caching. This can be done via the settings page of most caching plugins.
 
 = Have a question? =
 Please take a look at the FAQ section.
@@ -125,6 +128,11 @@ Without help and support from the WordPress community I was not able to develop 
 The plugin will use the website language, set in Settings > General.
 
 If translations are not available in the selected language, English will be used.
+
+= Does plugin support multilingual websites? =
+Yes, but do not set custom labels for Name, Email, Subject, etc with the label attributes or via the settings page. Use a multilingual plugin instead.
+
+If each language has its own form, than each form can have its own label attributes.
 
 = What is the default email address? =
 By default form submissions will be send to the email address set in Settings > General.
@@ -203,10 +211,7 @@ I did my best to meet the conditions of the GDPR:
 * You can disable collection of IP address
 * Form submissions are safely stored in database, similar to how the default posts and pages are stored
 * You can easily delete form submissions
-* You can disable form submissions being stored in datebase
-
-= Can I use the plugin on a ClassicPress website? =
-Yes you can! Obviously you cannot use the block, so use the shortcode instead.
+* You can disable form submissions being stored in database
 
 = Why is there no semantic versioning? =
 The version number won't give you info about the type of update (major, minor, patch). You should check the changelog to see whether or not the update is a major or minor one.
@@ -219,46 +224,45 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 
 == Changelog ==
-= Version 17.4 =
-* Added date to form submission
+= Version 18.5 =
+* Added support for ClassicPress
+* Block only loaded in WP 6.3 and above
+* Reverted the "Requires at least" version to 6.0
 
-= Version 17.3 =
-* Privacy form label now accepts HTML markup
-* Now you can, for example, include a link to your privacy policy
-* Removed wrong header from main plugin file
+= Version 18.4 =
+* New: expired transients are deleted when new transient (for sum field) is created
+* This avoids the flooding of database with expired transients
 
-= Version 17.2 =
+= Version 18.3 =
+* Fix: form reset script
+
+= Version 18.2 =
 * Minor changes in code
 
-= Version 17.1 =
-* Fix: textarea
+= Version 18.1 =
+* Fix: form reset and form anchor script
 
-= Version 17.0 =
-* Code improvements
-* Improved form validation
-* Bumped the "requires PHP" version to 7.4
-* Bumped the "Requires at least" version to 6.0
-
-= Version 16.9 =
-* Improved anti-spam features
-* New: set the minimum time in seconds between page load and form submission
-* In previous versions this "time trap" was a static value
-* Updated settings page
-
-= Version 16.8 =
-* Fix: detect email address in Message field
-
-= Version 16.7 =
-* Have updated the feature to ignore form submissions
-* Ignore form submissions if Message field does not accept links
-* Ignore form submissions if Message field does not accept email addresses
-* Updated block code
-
-= Version 16.6 =
+= Version 18.0 =
+* Fix: IP-address in form submissions
+* Updated form reset and form anchor script
 * Minor changes in code
 
-= Version 16.5 =
+= Version 17.9 =
+* Full rewrite of the block
+* It now supports the Block API version 3
+* Bumped the "Requires at least" version to 6.3
+
+= Version 17.8 =
 * Minor changes in code
+
+= Version 17.7 =
+* Fixed errors flagged by PCP
+* Added translation descriptions
+* Output escaping for widget
+* Minor changes in code
+
+= Version 17.6 =
+* Fix: settings page
 
 For all versions please check file changelog.
 
@@ -266,11 +270,12 @@ For all versions please check file changelog.
 == Screenshots ==
 1. Form
 2. Form widget
-3. Widget (dashboard)
-4. Settings page (dashboard)
+3. Page with block (dashboard)
+4. Widget (dashboard)
 5. Settings page (dashboard)
 6. Settings page (dashboard)
 7. Settings page (dashboard)
 8. Settings page (dashboard)
 9. Settings page (dashboard)
-10. Form submissions page (dashboard)
+10. Settings page (dashboard)
+11. Form submissions page (dashboard)

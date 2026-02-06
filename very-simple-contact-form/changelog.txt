@@ -1,5 +1,48 @@
 == Changelog VS Contact Form ==
 
+= Version 18.5 =
+* Added support for ClassicPress
+* Block only loaded in WP 6.3 and above
+* Reverted the "Requires at least" version to 6.0
+
+= Version 18.4 =
+* New: expired transients are deleted when new transient (for sum field) is created
+* This avoids the flooding of database with expired transients
+
+= Version 18.3 =
+* Fix: form reset script
+
+= Version 18.2 =
+* Minor changes in code
+
+= Version 18.1 =
+* Fix: form reset and form anchor script
+
+= Version 18.0 =
+* Fix: IP-address in form submissions
+* Updated form reset and form anchor script
+* Minor changes in code
+
+= Version 17.9 =
+* Full rewrite of the block
+* It now supports the Block API version 3
+* Bumped the "Requires at least" version to 6.3
+
+= Version 17.8 =
+* Minor changes in code
+
+= Version 17.7 =
+* Fixed errors flagged by PCP
+* Added translation descriptions
+* Output escaping for widget
+* Minor changes in code
+
+= Version 17.6 =
+* Fix: settings page
+
+= Version 17.5 =
+* Minor changes in code
+
 = Version 17.4 =
 * Added date to form submission
 
@@ -112,7 +155,7 @@
 
 = Version 14.5 =
 * Fix: updated transient
-* This fixes the flooding of database with temporary transients when site has much traffic
+* This avoids the flooding of database with temporary transients
 * IP address is not being used anymore for creating a transient
 
 = Version 14.4 =

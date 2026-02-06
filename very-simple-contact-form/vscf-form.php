@@ -6,7 +6,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // contact form
 $email_form = '<form name="vscf_'.$rand_suffix.'" id="vscf" class="'.esc_attr( $form_class ).'" method="post">
-'.$fieldset_start.'
 	<div class="form-group vscf-name-group">
 		<label for="vscf_name" class="'.( ( $hide_labels == 'yes' ) ? "vscf-hide" : "vscf-label" ).'">'.esc_html( $name_label ).' </label>
 		<input type="text" name="vscf_name_'.$rand_suffix.'" id="vscf_name" '.( ( isset( $error_class['form_name'] ) || isset( $error_class['form_name_banned_words'] ) ) ? ' class="form-control vscf-error"' : ' class="form-control"' ).' placeholder="'.esc_attr( $name_placeholder ).'" value="'.esc_attr( $form_data['form_name'] ).'" minlength="2" maxlength="'.esc_attr( $input_max_length ).'" aria-required="true" />
@@ -26,11 +25,11 @@ $email_form = '<form name="vscf_'.$rand_suffix.'" id="vscf" class="'.esc_attr( $
 	' : '' ).'
 	'.( ( $disable_sum == 'yes' ) ? '
 		<div class="form-group vscf-display-none">
-			<input type="hidden" name="vscf_sum_'.$rand_suffix.'" id="vscf_sum" class="form-control" value="'.esc_attr( $vscf_hidden_sum ).'" />
+			<input type="hidden" name="vscf_sum_'.$rand_suffix.'" id="vscf_sum" class="form-control" value="'.esc_attr( $hidden_sum ).'" />
 		</div>
 	' : '
 		<div class="form-group vscf-sum-group">
-			<label for="vscf_sum" class="'.( ( $hide_labels == 'yes' ) ? "vscf-hide" : "vscf-label" ).'">'.esc_html( $vscf_rand_one ).' + '.esc_html( $vscf_rand_two ).' =</label>
+			<label for="vscf_sum" class="'.( ( $hide_labels == 'yes' ) ? "vscf-hide" : "vscf-label" ).'">'.esc_html( $random_number_one ).' + '.esc_html( $random_number_two ).' =</label>
 			<input type="text" name="vscf_sum_'.$rand_suffix.'" id="vscf_sum" '.( isset( $error_class['form_sum'] ) ? ' class="form-control vscf-error"' : ' class="form-control"' ).' placeholder="'.esc_attr( $sum_placeholder ).'" value="'.esc_attr( $form_data['form_sum'] ).'" pattern="[0-9]{1,2}" maxlength="'.esc_attr( $input_max_length ).'" aria-required="true" />
 			'.( isset( $error_class['form_sum'] ) ? '<span class="vscf-error">'.esc_html( $error_sum_label ).'</span>' : '' ).'
 		</div>
@@ -51,7 +50,7 @@ $email_form = '<form name="vscf_'.$rand_suffix.'" id="vscf" class="'.esc_attr( $
 		' : '' ).'
 	</div>
 	<div class="form-group vscf-display-none">
-		<input type="hidden" name="vscf_time_'.$rand_suffix.'" id="vscf_time" class="form-control" value="'.esc_attr( $vscf_time_field ).'" />
+		<input type="hidden" name="vscf_time_'.$rand_suffix.'" id="vscf_time" class="form-control" value="'.esc_attr( $time_field ).'" />
 	</div>
 	'.( ( $disable_privacy != 'yes' ) ? '
 		<div class="form-group vscf-privacy-group">
@@ -62,17 +61,16 @@ $email_form = '<form name="vscf_'.$rand_suffix.'" id="vscf" class="'.esc_attr( $
 		</div>
 	' : '' ).'
 	<div class="form-group vscf-display-none">
-		'.$vscf_nonce_field.'
+		'.$form_nonce_field.'
 	</div>
 	<div class="form-group vscf-submit-group">
 		<button type="submit" name="'.esc_attr( $submit_name ).'" id="'.esc_attr( $submit_id ).'" class="btn btn-primary">'.esc_html( $submit_label ).'</button>
 	</div>
 	'.( ( $display_errors == 'yes' ) ?
-	( ( isset( $error_class['form_first_random'] ) || isset( $error_class['form_second_random'] ) ) ? '<p class="vscf-error" >'.esc_html__( 'Error: hidden field', 'very-simple-contact-form' ).'</p>' : '' ).
-	( isset( $error_class['form_time'] ) ? '<p class="vscf-error" >'.esc_html__( 'Error: time', 'very-simple-contact-form' ).'</p>' : '' ).
-	( isset( $error_class['form_nonce'] ) ? '<p class="vscf-error" >'.esc_html__( 'Error: nonce', 'very-simple-contact-form' ).'</p>' : '' ).
-	( isset( $error_class['form_sum_hidden'] ) ? '<p class="vscf-error" >'.esc_html__( 'Error: sum', 'very-simple-contact-form' ).'</p>' : '' ).
-	( isset( $error_class['form_transient'] ) ? '<p class="vscf-error" >'.esc_html__( 'Error: transient', 'very-simple-contact-form' ).'</p>' : '' )
+	( ( isset( $error_class['form_first_random'] ) || isset( $error_class['form_second_random'] ) ) ? '<span class="vscf-error" >'.esc_html__( 'Error: hidden field', 'very-simple-contact-form' ).'</span>' : '' ).
+	( isset( $error_class['form_time'] ) ? '<span class="vscf-error" >'.esc_html__( 'Error: time', 'very-simple-contact-form' ).'</span>' : '' ).
+	( isset( $error_class['form_nonce'] ) ? '<span class="vscf-error" >'.esc_html__( 'Error: nonce', 'very-simple-contact-form' ).'</span>' : '' ).
+	( isset( $error_class['form_sum_hidden'] ) ? '<span class="vscf-error" >'.esc_html__( 'Error: sum', 'very-simple-contact-form' ).'</span>' : '' ).
+	( isset( $error_class['form_transient'] ) ? '<span class="vscf-error" >'.esc_html__( 'Error: transient', 'very-simple-contact-form' ).'</span>' : '' )
 	: '' ).'
-'.$fieldset_end.'
 </form>';
