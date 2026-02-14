@@ -1,7 +1,7 @@
 === VS Contact Form ===
 Contributors: Guido07111975
-Version: 18.5
-Stable tag: 18.5
+Version: 18.6
+Stable tag: 18.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Requires PHP: 7.4
@@ -224,9 +224,12 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 
 == Changelog ==
+= Version 18.6 =
+* Minor changes in code
+
 = Version 18.5 =
 * Added support for ClassicPress
-* Block only loaded in WP 6.3 and above
+* The block will only load in WP 6.3 and higher
 * Reverted the "Requires at least" version to 6.0
 
 = Version 18.4 =
@@ -260,9 +263,6 @@ Please open a topic in the WordPress.org support forum for this plugin.
 * Added translation descriptions
 * Output escaping for widget
 * Minor changes in code
-
-= Version 17.6 =
-* Fix: settings page
 
 For all versions please check file changelog.
 
