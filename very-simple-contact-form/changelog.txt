@@ -1,5 +1,11 @@
 == Changelog VS Contact Form ==
 
+= Version 18.7 =
+* Sum captcha: replaced WP transient with PHP session
+* In rare cases transients were flooding the database
+* PHP sessions last until the browser is closed
+* So especially for high traffic websites this is a better approach
+
 = Version 18.6 =
 * Minor changes in code
 

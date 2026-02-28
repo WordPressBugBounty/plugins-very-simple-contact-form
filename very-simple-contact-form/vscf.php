@@ -2,7 +2,7 @@
 /*
  * Plugin Name: VS Contact Form
  * Description: With this lightweight plugin you can create a contact form.
- * Version: 18.6
+ * Version: 18.7
  * Author: Guido
  * Author URI: https://www.guido.site
  * License: GPLv3
@@ -131,33 +131,26 @@ function vscf_page_url() {
 	return esc_url_raw( $page_url );
 }
 
-// create name for sum transient
-function vscf_transient_name() {
-	$page_url = wp_parse_url( vscf_page_url(), PHP_URL_HOST );
-	if ( substr( $page_url, 0, 4 ) == 'www.' ) {
-		$replace = array( 'www.' => '' );
-		$domain = strtr( $page_url, $replace );
-	} else {
-		$domain = $page_url;
-	}
-	$domain_clean = preg_replace( '/[^a-zA-Z0-9]/', '', $domain );
+// create name for session
+function vscf_session_name() {
 	$ip = preg_replace( '/[^a-zA-Z0-9]/', '', vscf_ip_address() );
-	$transient_id = wp_hash( $domain_clean.$ip );
-	$transient_name = 'vscf_'.$transient_id;
-	return esc_attr( $transient_name );
+	$session_name[1] = 'vscf_'.$ip.'_1';
+	$session_name[2] = 'vscf_'.$ip.'_2';
+	return $session_name;
 }
 
-// create sum transient
-function vscf_transient() {
-	$transient_name = vscf_transient_name();
-	$rand_one = random_int( 1, 9 ) ;
+// create session
+function vscf_session() {
+	session_start();
+	$session_name = vscf_session_name();
+	$rand_one = random_int( 1, 9 );
 	$rand_two = random_int( 1, 9 );
-	if ( get_transient( $transient_name ) === false ) {
-		set_transient( $transient_name, array( 'rand_one' => $rand_one, 'rand_two' => $rand_two ), HOUR_IN_SECONDS );
-		delete_expired_transients();
+	if ( ! isset( $_SESSION[$session_name[1]] ) || ! isset( $_SESSION[$session_name[2]] ) ) {
+		$_SESSION[$session_name[1]] = $rand_one;
+		$_SESSION[$session_name[2]] = $rand_two;
 	}
 }
-add_action( 'init', 'vscf_transient' );
+add_action( 'init', 'vscf_session' );
 
 // create from email header
 function vscf_from_header() {

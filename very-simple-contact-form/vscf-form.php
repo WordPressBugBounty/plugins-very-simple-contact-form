@@ -71,6 +71,6 @@ $email_form = '<form name="vscf_'.$rand_suffix.'" id="vscf" class="'.esc_attr( $
 	( isset( $error_class['form_time'] ) ? '<span class="vscf-error" >'.esc_html__( 'Error: time', 'very-simple-contact-form' ).'</span>' : '' ).
 	( isset( $error_class['form_nonce'] ) ? '<span class="vscf-error" >'.esc_html__( 'Error: nonce', 'very-simple-contact-form' ).'</span>' : '' ).
 	( isset( $error_class['form_sum_hidden'] ) ? '<span class="vscf-error" >'.esc_html__( 'Error: sum', 'very-simple-contact-form' ).'</span>' : '' ).
-	( isset( $error_class['form_transient'] ) ? '<span class="vscf-error" >'.esc_html__( 'Error: transient', 'very-simple-contact-form' ).'</span>' : '' )
+	( isset( $error_class['form_session'] ) ? '<span class="vscf-error" >'.esc_html__( 'Error: session', 'very-simple-contact-form' ).'</span>' : '' )
 	: '' ).'
 </form>';

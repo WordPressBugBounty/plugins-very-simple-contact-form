@@ -44,10 +44,12 @@ function vscf_shortcode( $vscf_atts ) {
 
 	// after form validation
 	if ( $sent == true ) {
-		delete_transient( $transient_name );
+		unset( $_SESSION[$session_name[1]] );
+		unset( $_SESSION[$session_name[2]] );
 		return '<script>window.location="'.vscf_redirect_success().'"</script>';
 	} elseif ( $fail == true ) {
-		delete_transient( $transient_name );
+		unset( $_SESSION[$session_name[1]] );
+		unset( $_SESSION[$session_name[2]] );
 		return '<script>window.location="'.vscf_redirect_error().'"</script>';
 	}
 
@@ -108,10 +110,12 @@ function vscf_widget_shortcode( $vscf_atts ) {
 
 	// after form validation
 	if ( $sent == true ) {
-		delete_transient( $transient_name );
+		unset( $_SESSION[$session_name[1]] );
+		unset( $_SESSION[$session_name[2]] );
 		return '<script>window.location="'.vscf_widget_redirect_success().'"</script>';
 	} elseif ( $fail == true ) {
-		delete_transient( $transient_name );
+		unset( $_SESSION[$session_name[1]] );
+		unset( $_SESSION[$session_name[2]] );
 		return '<script>window.location="'.vscf_widget_redirect_error().'"</script>';
 	}
 

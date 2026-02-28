@@ -1,7 +1,7 @@
 === VS Contact Form ===
 Contributors: Guido07111975
-Version: 18.6
-Stable tag: 18.6
+Version: 18.7
+Stable tag: 18.7
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Requires PHP: 7.4
@@ -224,6 +224,12 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 
 == Changelog ==
+= Version 18.7 =
+* Sum captcha: replaced WP transient with PHP session
+* In rare cases transients were flooding the database
+* PHP sessions last until the browser is closed
+* So especially for high traffic websites this is a better approach
+
 = Version 18.6 =
 * Minor changes in code
 
@@ -256,12 +262,6 @@ Please open a topic in the WordPress.org support forum for this plugin.
 * Bumped the "Requires at least" version to 6.3
 
 = Version 17.8 =
-* Minor changes in code
-
-= Version 17.7 =
-* Fixed errors flagged by PCP
-* Added translation descriptions
-* Output escaping for widget
 * Minor changes in code
 
 For all versions please check file changelog.

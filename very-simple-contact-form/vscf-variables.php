@@ -68,14 +68,13 @@ $time_field = time();
 $rand_suffix = get_the_ID();
 
 // sum variables used by form and validation
-$transient_name = vscf_transient_name();
-if ( get_transient( $transient_name ) === false ) {
+$session_name = vscf_session_name();
+if ( ! empty( $_SESSION[$session_name[1]] ) && ! empty( $_SESSION[$session_name[2]] ) ) {
+	$random_number_one = $_SESSION[$session_name[1]];
+	$random_number_two = $_SESSION[$session_name[2]];
+} else {
 	$random_number_one = 0;
 	$random_number_two = 0;
-} else {
-	$transient_array = get_transient( $transient_name );
-	$random_number_one = $transient_array['rand_one'];
-	$random_number_two = $transient_array['rand_two'];
 }
 
 // hidden sum field

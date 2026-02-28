@@ -92,21 +92,21 @@ if ( $disable_subject != 'yes' ) {
 }
 
 // validate sum field
-if ( get_transient( $transient_name ) === false) {
-	$error_class['form_transient'] = true;
+if ( empty( $_SESSION[$session_name[1]] ) || empty( $_SESSION[$session_name[2]] ) ) {
+	$error_class['form_session'] = true;
 	$error = true;
 } else {
 	if ( $disable_sum == 'yes' ) {
 		$value_sum = $post_data['form_sum'];
-		$value_transient = wp_hash( $random_number_one + $random_number_two );
-		if ( $value_sum != $value_transient ) {
+		$value_session = wp_hash( $random_number_one + $random_number_two );
+		if ( $value_sum != $value_session ) {
 			$error_class['form_sum_hidden'] = true;
 			$error = true;
 		}
 	} else {
 		$value_sum = $post_data['form_sum'];
-		$value_transient = $random_number_one + $random_number_two;
-		if ( $value_sum != $value_transient ) {
+		$value_session = $random_number_one + $random_number_two;
+		if ( $value_sum != $value_session ) {
 			$error_class['form_sum'] = true;
 			$error = true;
 		}
