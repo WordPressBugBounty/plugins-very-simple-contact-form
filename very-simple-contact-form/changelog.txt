@@ -1,5 +1,9 @@
 == Changelog VS Contact Form ==
 
+= Version 18.8 =
+* Fix: PHP session related error on Site Health page
+* New: setting to ignore form submissions if minimum time is not reached
+
 = Version 18.7 =
 * Sum captcha: replaced WP transient with PHP session
 * In rare cases transients were flooding the database

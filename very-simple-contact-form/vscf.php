@@ -2,7 +2,7 @@
 /*
  * Plugin Name: VS Contact Form
  * Description: With this lightweight plugin you can create a contact form.
- * Version: 18.7
+ * Version: 18.8
  * Author: Guido
  * Author URI: https://www.guido.site
  * License: GPLv3
@@ -149,8 +149,18 @@ function vscf_session() {
 		$_SESSION[$session_name[1]] = $rand_one;
 		$_SESSION[$session_name[2]] = $rand_two;
 	}
+	session_write_close();
 }
 add_action( 'init', 'vscf_session' );
+
+// delete session
+function vscf_delete_session() {
+	$session_name = vscf_session_name();
+	session_start();
+	unset( $_SESSION[$session_name[1]] );
+	unset( $_SESSION[$session_name[2]] );
+	session_write_close();
+}
 
 // create from email header
 function vscf_from_header() {

@@ -104,10 +104,11 @@ $display_errors = get_option( 'vscf-setting-34' );
 $banned_words_string = get_option( 'vscf-setting-29' );
 $allow_links = get_option( 'vscf-setting-25' );
 $allow_email = get_option( 'vscf-setting-36' );
+$minimum_seconds = get_option( 'vscf-setting-40' );
 $ignore_submission_banned_words = get_option( 'vscf-setting-30' );
 $ignore_submission_links = get_option( 'vscf-setting-38' );
 $ignore_submission_email = get_option( 'vscf-setting-39' );
-$minimum_seconds = get_option( 'vscf-setting-40' );
+$ignore_submission_minimum_seconds = get_option( 'vscf-setting-41' );
 
 // get settings from settings page - fields
 $disable_subject = get_option( 'vscf-setting-23' );

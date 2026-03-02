@@ -7,9 +7,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 // sending and saving form submission
 if ( $error == false ) {
 	// ignore form submission in these cases
-	if ( ( isset( $error_class['form_first_random'] ) || isset( $error_class['form_second_random'] ) ) && ( $display_errors != 'yes' ) ) {
+	if ( ( isset( $error_class['form_time'] ) || isset( $error_class['form_first_random'] ) || isset( $error_class['form_second_random'] ) ) && ( $display_errors != 'yes' ) ) {
 		$sent = true;
-	} elseif ( isset( $error_class['form_time'] ) && ( $display_errors != 'yes' ) ) {
+	} elseif ( isset( $error_class['form_time'] ) && ( $ignore_submission_minimum_seconds == 'yes' ) ) {
 		$sent = true;
 	} elseif ( isset( $banned_words ) && ( $ignore_submission_banned_words == 'yes' ) ) {
 		$sent = true;

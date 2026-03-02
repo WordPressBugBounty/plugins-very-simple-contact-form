@@ -1,7 +1,7 @@
 === VS Contact Form ===
 Contributors: Guido07111975
-Version: 18.7
-Stable tag: 18.7
+Version: 18.8
+Stable tag: 18.8
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Requires PHP: 7.4
@@ -224,6 +224,10 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 
 == Changelog ==
+= Version 18.8 =
+* Fix: PHP session related error on Site Health page
+* New: setting to ignore form submissions if minimum time is not reached
+
 = Version 18.7 =
 * Sum captcha: replaced WP transient with PHP session
 * In rare cases transients were flooding the database
@@ -260,9 +264,6 @@ Please open a topic in the WordPress.org support forum for this plugin.
 * Full rewrite of the block
 * It now supports the Block API version 3
 * Bumped the "Requires at least" version to 6.3
-
-= Version 17.8 =
-* Minor changes in code
 
 For all versions please check file changelog.
 

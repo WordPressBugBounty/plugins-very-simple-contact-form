@@ -78,6 +78,9 @@ function vscf_admin_init() {
 	add_settings_field( 'vscf-field-40', esc_html__( 'Time trap', 'very-simple-contact-form' ), 'vscf_field_callback_40', 'vscf-spam', 'vscf-spam-section' );
 	register_setting( 'vscf-spam-options', 'vscf-setting-40', array( 'sanitize_callback' => 'sanitize_text_field' ) );
 
+	add_settings_field( 'vscf-field-41', esc_html__( 'Time trap', 'very-simple-contact-form' ), 'vscf_field_callback_41', 'vscf-spam', 'vscf-spam-section' );
+	register_setting( 'vscf-spam-options', 'vscf-setting-41', array( 'sanitize_callback' => 'sanitize_key' ) );
+
 	// field section
 	add_settings_section( 'vscf-field-section', esc_html__( 'Fields', 'very-simple-contact-form' ), '', 'vscf-field' );	
 
@@ -348,6 +351,15 @@ function vscf_field_callback_40() {
 	<input type="number" min="5" max="60" size="10" name="vscf-setting-40" placeholder="<?php echo esc_attr( $placeholder ); ?>" value="<?php echo esc_attr( $value ); ?>" />
 	<?php /* translators: %s: default value for this variable. */ printf( esc_html__( 'Default value is %s.', 'very-simple-contact-form' ), '5' ); ?>
 	<p><?php esc_html_e( 'Minimum time in seconds between page load and form submission.', 'very-simple-contact-form' ); ?></p>
+	<?php
+}
+
+function vscf_field_callback_41() {
+	$value = get_option( 'vscf-setting-41' );
+	?>
+	<input type="hidden" name="vscf-setting-41" value="no">
+	<label><input type="checkbox" name="vscf-setting-41" <?php checked( esc_attr( $value ), 'yes' ); ?> value="yes"> <?php esc_html_e( 'Ignore form submissions if minimum time is not reached.', 'very-simple-contact-form' ); ?></label>
+	<p><?php esc_html_e( 'You can activate this if you receive a lot of spam.', 'very-simple-contact-form' ); ?></p>
 	<?php
 }
 
