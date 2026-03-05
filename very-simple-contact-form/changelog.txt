@@ -1,5 +1,8 @@
 == Changelog VS Contact Form ==
 
+= Version 18.9 =
+* Fix: strip backslashes from emails
+
 = Version 18.8 =
 * Fix: PHP session related error on Site Health page
 * New: setting to ignore form submissions if minimum time is not reached

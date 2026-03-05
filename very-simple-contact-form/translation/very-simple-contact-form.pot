@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: VS Contact Form\n"
-"POT-Creation-Date: 2026-03-02 08:21+0100\n"
+"POT-Creation-Date: 2026-03-05 07:42+0100\n"
 "PO-Revision-Date: 2015-08-14 23:18+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -73,7 +73,7 @@ msgid "Subject"
 msgstr ""
 
 #: vscf-options.php:36 vscf-options.php:63 vscf-options.php:69
-#: vscf-options.php:75 vscf.php:39
+#: vscf-options.php:75 vscf-options.php:81 vscf.php:39
 msgid "Submissions"
 msgstr ""
 
@@ -114,7 +114,7 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
-#: vscf-options.php:78 vscf-options.php:81
+#: vscf-options.php:78
 msgid "Time trap"
 msgstr ""
 

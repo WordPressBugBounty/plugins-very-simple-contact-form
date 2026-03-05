@@ -30,7 +30,7 @@ $post_data = array(
 );
 
 // validate name field
-$value_name = $post_data['form_name'];
+$value_name = stripslashes( $post_data['form_name'] );
 if ( ! empty( $banned_words_list ) ) {
 	$words = explode( ',', $banned_words_list );
 	foreach ( $words as $word ) {
@@ -71,7 +71,7 @@ $form_data['form_email'] = $value_email;
 
 // validate subject field
 if ( $disable_subject != 'yes' ) {
-	$value_subject = $post_data['form_subject'];
+	$value_subject = stripslashes( $post_data['form_subject'] );
 	if ( ! empty( $banned_words_list ) ) {
 		$words = explode( ',', $banned_words_list );
 		foreach ( $words as $word ) {
@@ -115,7 +115,7 @@ if ( empty( $_SESSION[$session_name[1]] ) || empty( $_SESSION[$session_name[2]] 
 }
 
 // validate message field
-$value_message = $post_data['form_message'];
+$value_message = stripslashes( $post_data['form_message'] );
 $value_message_clean = preg_replace( '/\s+/u', ' ', $value_message );
 $message_array = explode( ' ', $value_message_clean );
 if ( ! empty( $banned_words_list ) ) {
