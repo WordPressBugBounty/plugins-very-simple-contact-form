@@ -2,8 +2,8 @@
 
 /* Form reset */
 window.addEventListener("pageshow", function() {
-	if(document.getElementById("vscf")) {
-		document.getElementById("vscf").reset();
+	if(document.getElementById("vscf-form")) {
+		document.getElementById("vscf-form").reset();
 	}
 });
 

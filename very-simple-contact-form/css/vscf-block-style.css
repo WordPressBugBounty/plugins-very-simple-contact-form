@@ -3,7 +3,7 @@
 /* VS Contact Form block stylesheet */
 
 /* Form container */
-#vscf {background:none; padding:0; margin:0; border:0;}
+#vscf-form {background:none; border:0;}
 
 /* Form elements */
 #vscf .form-group input[type="text"], #vscf .form-group input[type="email"], #vscf .form-group textarea {padding:5px 10px; background:#f8f8f8; border:1px solid #ddd; border-radius:0; line-height:1;}

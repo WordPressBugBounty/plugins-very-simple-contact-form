@@ -4,10 +4,11 @@
 
 /* Form container */
 #vscf {clear:both;}
-#vscf:after {content:''; display:block; height:0; clear:both;}
+#vscf-form {display:block; margin:0; padding:0;}
+#vscf-form:after {content:''; display:block; height:0; clear:both;}
 
 /* Form anchor */
-#vscf-anchor {clear:both;}
+#vscf-anchor {}
 
 /* Form elements */
 #vscf .form-group {margin-bottom:15px;}
@@ -35,7 +36,7 @@
 #vscf .vscf-display-none {display:none;}
 
 /* Success or fail message */
-.vscf-info {padding:10px 0; font-style:italic;}
+.vscf-info {clear:both; padding:10px 0; font-style:italic;}
 
 /* Widget */
 .vscf-widget {}

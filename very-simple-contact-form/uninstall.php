@@ -11,7 +11,7 @@ if ( $keep != 'yes' ) {
 
 	// delete options
 	$wpdb->query( "DELETE FROM {$wpdb->options} WHERE option_name LIKE 'vscf-setting%'" );
-	$wpdb->query( "DELETE FROM {$wpdb->options} WHERE option_name LIKE 'widget_vscf%'" );
+	$wpdb->query( "DELETE FROM {$wpdb->options} WHERE option_name = 'widget_vscf_widget'" );
 
 	// delete submissions
 	$wpdb->query( "DELETE FROM {$wpdb->posts} WHERE post_type = 'submission'" );

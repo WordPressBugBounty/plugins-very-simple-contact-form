@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // contact form
-$email_form = '<form name="vscf_'.$rand_suffix.'" id="vscf" class="'.esc_attr( $form_class ).'" method="post">
+$email_form = '<form name="vscf_'.$rand_suffix.'" id="vscf-form" method="post">
 	<div class="form-group vscf-name-group">
 		<label for="vscf_name" class="'.( ( $hide_labels == 'yes' ) ? "vscf-hide" : "vscf-label" ).'">'.esc_html( $name_label ).' </label>
 		<input type="text" name="vscf_name_'.$rand_suffix.'" id="vscf_name" '.( ( isset( $error_class['form_name'] ) || isset( $error_class['form_name_banned_words'] ) ) ? ' class="form-control vscf-error"' : ' class="form-control"' ).' placeholder="'.esc_attr( $name_placeholder ).'" value="'.esc_attr( $form_data['form_name'] ).'" minlength="2" maxlength="'.esc_attr( $input_max_length ).'" aria-required="true" />

@@ -1,7 +1,7 @@
 === VS Contact Form ===
 Contributors: Guido07111975
-Version: 18.9
-Stable tag: 18.9
+Version: 19.0
+Stable tag: 19.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Requires PHP: 7.4
@@ -224,6 +224,10 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 
 == Changelog ==
+= Version 19.0 =
+* Updated HTML structure
+* Minor changes in code
+
 = Version 18.9 =
 * Fix: strip backslashes from emails
 
@@ -257,11 +261,6 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 = Version 18.1 =
 * Fix: form reset and form anchor script
-
-= Version 18.0 =
-* Fix: IP-address in form submissions
-* Updated form reset and form anchor script
-* Minor changes in code
 
 For all versions please check file changelog.
 

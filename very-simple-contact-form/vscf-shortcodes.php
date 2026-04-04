@@ -54,15 +54,15 @@ function vscf_shortcode( $vscf_atts ) {
 	// display form or the result of submission
 	if ( isset( $_GET['vscf-sh'] ) ) {
 		if ( sanitize_key( $_GET['vscf-sh'] ) == 'success' ) {
-			return $anchor_begin.'<div class="vscf-info">'.wp_kses_post( wpautop( $thank_you_message ) ).'</div>'.$anchor_end;
+			return '<div class="vscf-info">' . $anchor_begin . wp_kses_post( wpautop( $thank_you_message ) ) . $anchor_end . '</div>';
 		} elseif ( sanitize_key( $_GET['vscf-sh'] ) == 'fail' ) {
-			return $anchor_begin.'<div class="vscf-info">'.esc_html__( 'Error: could not send form', 'very-simple-contact-form' ).'</div>'.$anchor_end;
+			return '<div class="vscf-info">' . $anchor_begin . esc_html__( 'Error: could not send form', 'very-simple-contact-form' ) . $anchor_end . '</div>';
 		}
 	} else {
 		if ( $error == true ) {
-			return $anchor_begin .$email_form. $anchor_end;
+			return '<div id="vscf" class="'.esc_attr( $form_class ).'">' . $anchor_begin . $email_form . $anchor_end . '</div>';
 		} else {
-			return $email_form;
+			return '<div id="vscf" class="'.esc_attr( $form_class ).'">' . $email_form . '</div>';
 		}
 	}
 }
@@ -118,15 +118,15 @@ function vscf_widget_shortcode( $vscf_atts ) {
 	// display form or the result of submission
 	if ( isset( $_GET['vscf-wi'] ) ) {
 		if ( sanitize_key( $_GET['vscf-wi'] ) == 'success' ) {
-			return $anchor_begin.'<div class="vscf-info">'.wp_kses_post( wpautop( $thank_you_message ) ).'</div>'.$anchor_end;
+			return '<div class="vscf-info">' . $anchor_begin . wp_kses_post( wpautop( $thank_you_message ) ) . $anchor_end . '</div>';
 		} elseif ( sanitize_key( $_GET['vscf-wi'] ) == 'fail' ) {
-			return $anchor_begin.'<div class="vscf-info">'.esc_html__( 'Error: could not send form', 'very-simple-contact-form' ).'</div>'.$anchor_end;
+			return '<div class="vscf-info">' . $anchor_begin . esc_html__( 'Error: could not send form', 'very-simple-contact-form' ) . $anchor_end . '</div>';
 		}
 	} else {
 		if ( $error == true ) {
-			return $anchor_begin .$email_form. $anchor_end;
+			return '<div id="vscf" class="'.esc_attr( $form_class ).'">' . $anchor_begin . $email_form . $anchor_end . '</div>';
 		} else {
-			return $email_form;
+			return '<div id="vscf" class="'.esc_attr( $form_class ).'">' . $email_form . '</div>';
 		}
 	}
 }
