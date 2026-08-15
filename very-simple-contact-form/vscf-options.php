@@ -161,7 +161,7 @@ function vscf_field_callback_1() {
 	$value = get_option( 'vscf-setting-1' );
 	?>
 	<input type="hidden" name="vscf-setting-1" value="no">
-	<label><input type="checkbox" name="vscf-setting-1" <?php checked( esc_attr( $value ), 'yes' ); ?> value="yes"> <?php esc_html_e( 'Do not delete form submissions and settings when uninstalling plugin.', 'very-simple-contact-form' ); ?></label>
+	<label><input type="checkbox" name="vscf-setting-1" <?php checked( esc_attr( $value ), 'yes' ); ?> value="yes"> <?php esc_html_e( 'Do not delete form submissions and plugin settings from the database.', 'very-simple-contact-form' ); ?></label>
 	<?php
 }
 

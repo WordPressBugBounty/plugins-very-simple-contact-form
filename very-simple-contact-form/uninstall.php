@@ -4,8 +4,8 @@ if ( !defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit();
 }
 
-$keep = get_option( 'vscf-setting-1' );
-if ( $keep != 'yes' ) {
+$vscf_keep = get_option( 'vscf-setting-1' );
+if ( $vscf_keep != 'yes' ) {
 	// set global
 	global $wpdb;
 

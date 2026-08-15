@@ -1,12 +1,12 @@
 === VS Contact Form ===
 Contributors: Guido07111975
-Version: 19.0
-Stable tag: 19.0
+Version: 19.1
+Stable tag: 19.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Requires PHP: 7.4
 Requires at least: 6.0
-Tested up to: 6.9
+Tested up to: 7.1
 Tags: contact, form, contact form, email, classicpress
 
 
@@ -224,6 +224,9 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 
 == Changelog ==
+= Version 19.1 =
+* Minor changes in code
+
 = Version 19.0 =
 * Updated HTML structure
 * Minor changes in code
@@ -258,9 +261,6 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 = Version 18.2 =
 * Minor changes in code
-
-= Version 18.1 =
-* Fix: form reset and form anchor script
 
 For all versions please check file changelog.
 
