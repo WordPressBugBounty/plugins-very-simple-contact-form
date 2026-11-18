@@ -1,5 +1,8 @@
 == Changelog VS Contact Form ==
 
+= Version 19.2 =
+* Updated condition to detect ClassicPress
+
 = Version 19.1 =
 * Minor changes in code
 

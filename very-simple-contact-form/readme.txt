@@ -1,7 +1,7 @@
 === VS Contact Form ===
 Contributors: Guido07111975
-Version: 19.1
-Stable tag: 19.1
+Version: 19.2
+Stable tag: 19.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Requires PHP: 7.4
@@ -224,6 +224,9 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 
 == Changelog ==
+= Version 19.2 =
+* Updated condition to detect ClassicPress
+
 = Version 19.1 =
 * Minor changes in code
 
@@ -258,9 +261,6 @@ Please open a topic in the WordPress.org support forum for this plugin.
 
 = Version 18.3 =
 * Fix: form reset script
-
-= Version 18.2 =
-* Minor changes in code
 
 For all versions please check file changelog.
 
